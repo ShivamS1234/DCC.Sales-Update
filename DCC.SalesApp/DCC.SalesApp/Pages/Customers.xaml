@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:DCC.SalesApp.Pages" 
+    xmlns:views="clr-namespace:DCC.SalesApp.Views" 
+    x:Class="DCC.SalesApp.Pages.Customers" 
+    x:Name="retailerList"
+    xmlns:controls="clr-namespace:DCC.SalesApp.CustomRenderers" 
+    xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1">
+   <ContentPage.ToolbarItems>
+        <ToolbarItem Command="{Binding AddNewCommand}" Icon="plus.png" CommandParameter="{Binding Source={x:Reference Name=retailerList}}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Padding="15,15,15,0" BackgroundColor="White">
+            <controls:InfiniteListView x:Name="lstRetailers" ItemsSource="{Binding RetailerLists}" SeparatorVisibility="None" HasUnevenRows="true" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <controls:InfiniteListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Frame Padding="10" Margin="0,5,0,5" HasShadow="false" BackgroundColor="#F4F4F4">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="9*" />
+                                            <ColumnDefinition Width="9*" />
+                                            <ColumnDefinition Width="9*" />
+                                            <ColumnDefinition Width="5*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="3*" />
+                                            <RowDefinition Height="2*" />
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+                                            <Label Text="{Binding nameCode}" TextColor="Black" LineBreakMode="WordWrap" x:Name="lblName" Font="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                                        </StackLayout>
+                                        <Label Text="{Binding CreatedDate, StringFormat = '{0:dd-MMM-yy}'}" Grid.Column="3" Grid.Row="0" HorizontalOptions="EndAndExpand" VerticalOptions="Center" FontSize="10" TextColor="Gray" Grid.ColumnSpan="3" />
+                                        <StackLayout Grid.Row="1" Grid.Column="0" Spacing="1" Grid.ColumnSpan="4" Orientation="Horizontal">
+                                            <Label LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Over Due Days: " FontAttributes="Bold" FontSize="9" TextColor="Black" />
+                                                            <Span Text="{Binding OverDueDays} " FontAttributes="Bold" FontSize="9" TextColor="#00a2ff" />
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Balance: " FontAttributes="Bold" FontSize="9" TextColor="Black" />
+                                                            <Span Text="{Binding Balance,StringFormat = '{0:#,##0.0;(#,##0.0);Zero}'}}" FontAttributes="Bold" FontSize="9" TextColor="#00a2ff" />
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                            <Label LineBreakMode="WordWrap" HorizontalOptions="FillAndExpand">
+                                                <Label.FormattedText>
+                                                    <FormattedString>
+                                                        <FormattedString.Spans>
+                                                            <Span Text="Limit: " FontAttributes="Bold" FontSize="9" TextColor="Black" />
+                                                            <Span Text="{Binding Balance,StringFormat = '{0:#,##0.0;(#,##0.0);Zero}'}}" FontAttributes="Bold" FontSize="9" TextColor="#00a2ff" />
+                                                        </FormattedString.Spans>
+                                                    </FormattedString>
+                                                </Label.FormattedText>
+                                            </Label>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:InfiniteListView.ItemTemplate>
+            </controls:InfiniteListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage> 

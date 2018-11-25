@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"                 
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"  
+             x:Class="DCC.SalesApp.Pages.CashFromCustomer" >
+    <ContentPage.Content>
+        <StackLayout StyleClass="Stack">
+            <ScrollView >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />                       
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+
+                    </Grid.RowDefinitions>
+
+                    <Label Text="Customer Code : " Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"/>
+                    <Picker StyleClass="PickerStyle" x:Name="PkCustomer" Grid.Column="1"  Grid.Row="0" ItemDisplayBinding="{Binding Code}" SelectedItem="{Binding ID}" Title="Select Customer Code" SelectedIndexChanged="PkCustomer_SelectedIndexChanged"/>
+
+                    <Label Text="Customer Name : " Grid.Column="0" Grid.Row="1" StyleClass="LabelClass"/>
+                    <Picker StyleClass="PickerStyle" x:Name="PkCustomerName" Grid.Column="1"  Grid.Row="1" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding ID}" Title="Select Customer Name" SelectedIndexChanged="PkCustomerNamee_SelectedIndexChanged"/>
+
+                    <Label Text="Currency :" Grid.Column="0" Grid.Row="2" StyleClass="LabelClass"/>
+                    <Picker StyleClass="PickerStyle" x:Name="PkACurrency" Grid.Column="1"  Grid.Row="2" ItemDisplayBinding="{Binding CurrCode}" SelectedItem="{Binding ID}" Title="Select Currency" SelectedIndexChanged="PkACurrency_SelectedIndexChanged"/>
+
+                    <Label Text="PayMeans :" Grid.Column="0"  Grid.Row="3" StyleClass="LabelClass"/>
+                    <Picker StyleClass="PickerStyle" x:Name="PkPayMeans" Grid.Column="1"  Grid.Row="3" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding ID}" Title="Select PayMeant" SelectedIndexChanged="PkPayMeans_SelectedIndexChanged"/>
+
+
+                    <Label Text="Amount :" Grid.Column="0" Grid.Row="4" StyleClass="LabelClass"/>
+                    <Editor x:Name="textAmount" Grid.Column="1" Grid.Row="4" StyleClass="TextClass"/>
+
+                    <Label Text="Cheque / Reference No :" Grid.Column="0" Grid.Row="5" StyleClass="LabelClass"/>
+                    <Editor x:Name="texChequeReference" Grid.Column="1" Grid.Row="5" StyleClass="TextClass"/>
+                    <!--<DatePicker x:Name="CalStartDate" Grid.Column="1" Grid.Row="5" Format="yyyy-MM-dd" MinimumDate="{Binding Activities.StartDate}" StyleClass="DatePickerStyle"/>-->
+
+                    <Label Text="Receipt Remarks:" Grid.Column="0" Grid.Row="6" StyleClass="LabelClass"/>
+                    <Editor x:Name="texReceipt" Grid.Column="1" Grid.Row="6" StyleClass="TextClass"/>
+
+                    <Label Text="Received From :" Grid.Column="0" Grid.Row="7" StyleClass="LabelClass"/>
+                    <Editor x:Name="texReceivedFrom" Grid.Column="1" Grid.Row="7" StyleClass="TextClass"/>
+
+                    <Label Text="Received By:" Grid.Column="0" Grid.Row="8" StyleClass="LabelClass"/>
+                    <Editor x:Name="texReceivedBy" Grid.Column="1" Grid.Row="8" StyleClass="TextClass"/>
+
+
+                    <Label Text="SignatureImg:" Grid.Column="0" Grid.Row="9" StyleClass="LabelClass"/>
+                    <!--<Editor x:Name="texSignatureImg" Grid.Column="1" Grid.Row="9" StyleClass="TextClass"/>-->
+                    <Button x:Name="BtnSignature"  Grid.Column="1" Grid.Row="9"  Text="Click here for signature " StyleClass="BtnClass" Clicked="BtnSignature_Clicked" WidthRequest="120"/>
+
+                    <!--<Label Text="Location:" Grid.Column="0" Grid.Row="10" StyleClass="LabelClass"/>
+                    <Picker StyleClass="PickerStyle" x:Name="PkLocation" Grid.Column="1"  Grid.Row="10" ItemDisplayBinding="{Binding AreaCode}" SelectedItem="{Binding ID}" Title="Select Location" SelectedIndexChanged="PickerLocation_SelectedIndexChanged"></Picker>
+
+                    <Label Text="Notes:" Grid.Column="0" Grid.Row="11" StyleClass="LabelClass"/>
+                    <Editor x:Name="txtNotes" Grid.Column="1" Grid.Row="11" StyleClass="TextClass"/>               
+
+                    <Label Text="Status:" Grid.Column="0" Grid.Row="12" StyleClass="LabelClass"/>
+                    <Picker StyleClass="PickerStyle" x:Name="PkStatus" Grid.Column="1"  Grid.Row="12" ItemDisplayBinding="{Binding Status}" SelectedItem="{Binding ID}" Title="Select Status" SelectedIndexChanged="PickerPkStatus_SelectedIndexChanged"></Picker>
+
+                    <Button x:Name="GalaryPhoto" Text="Pick Photo" Grid.Column="0" Grid.Row="13"  StyleClass="BtnClass"/>
+                    <Button x:Name="CameraButton" Text="Take Photo" Grid.Column="1" Grid.Row="13" StyleClass="BtnClass" />
+                    
+                    <Label Text="Picture :" Grid.Column="0" Grid.Row="14" StyleClass="LabelClass"/>
+                    <Image x:Name="Att_Image" HorizontalOptions="Start"  Grid.Column="1" Grid.Row="14" HeightRequest="100" WidthRequest="100"  />-->
+
+                    <Button x:Name="BtnUpdateEdit"  Grid.Column="1" Grid.Row="10"  Text="Save" StyleClass="BtnClass" Clicked="BtnUpdateEdit_Clicked" />
+                </Grid>
+            </ScrollView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

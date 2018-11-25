@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Views.ViewNotes"  xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1">
+    <ContentView.Content>
+        <dxGrid:GridControl x:Name="_grdNotes" ItemsSource="{Binding NotesInfo}" AutoFilterPanelVisibility="true" 
+                             SortMode="Multiple"  IsReadOnly="True"  AllowGroup="True" AllowGroupCollapse="True">
+            <dxGrid:GridControl.Columns>
+                <dxGrid:DateColumn FieldName="StartDate"  IsGrouped="True" GroupInterval="DateRange" />
+                <dxGrid:TemplateColumn FieldName="Name" Caption="Notes" AllowAutoFilter="False" SortMode="DisplayText"  AllowGroup="False" AllowSort="False">
+                    <dxGrid:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid BindingContext="{Binding Source}"  Padding="0,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding ActivityName}"  XAlign="Start" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"  VerticalOptions="Start"   />
+                                <Label Text="{Binding ActivitySubject, StringFormat = ' - {0}'}"   XAlign="Start" Grid.Column="1" Grid.Row="0" StyleClass="LabelClass1" FontAttributes="None"  VerticalOptions="Center" />
+
+                                <Label Text="{Binding DetailStatus}"  XAlign="Start" Grid.Column="0" Grid.Row="1" StyleClass="LabelClass1"  VerticalOptions="Start" HorizontalOptions="Start" Grid.ColumnSpan="2"/>
+                                <Label Text="{Binding StartDate, StringFormat = '{0:dd-MMM-yy}'}"  Grid.Column="2" Grid.Row="1" StyleClass="LabelClass" VerticalOptions="Start" XAlign="End"  />
+
+                            </Grid>
+                        </DataTemplate>
+                    </dxGrid:TemplateColumn.DisplayTemplate>
+                </dxGrid:TemplateColumn>
+            </dxGrid:GridControl.Columns>
+        </dxGrid:GridControl>
+    </ContentView.Content>
+</ContentView>

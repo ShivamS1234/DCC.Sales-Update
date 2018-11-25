@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Views.ViewOrderFullFillMentNew" 
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1">
+  <ContentView.Content>
+        <dxGrid:GridControl x:Name="_grdOrderFulfill" ItemsSource="{Binding OrderFulfillNew}" AutoFilterPanelVisibility="true" AllowGroup="True" AllowGroupCollapse="True">
+            <!--RowTap="_grdOrderFulfill_RowTap"-->
+            <dxGrid:GridControl.Columns>
+                <dxGrid:TextColumn FieldName="CustNameCode" IsGrouped="True" Caption="Customer" GroupInterval="DisplayText" />
+                <dxGrid:SwitchColumn x:Name="switchFultill" FieldName="Flag" Width="100" Caption="Delivered" />
+             
+                <dxGrid:TemplateColumn FieldName="Details" Caption="Details" AllowSort="False" >
+                    <dxGrid:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid BindingContext="{Binding Source}"  Padding="0,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding NameLocation}"  XAlign="Start" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"  VerticalOptions="Start" HorizontalOptions="Start" />
+                                <Label Text="{Binding ID}"  XAlign="Start" Grid.Column="1" Grid.Row="0" StyleClass="LabelClass" FontAttributes="None"  VerticalOptions="Start" HorizontalOptions="Start" />
+
+                                <Label Text="{Binding PostDate, StringFormat = '{0:dd-MMM-yy}'}}"  XAlign="Start" Grid.Column="0" Grid.Row="1" StyleClass="LabelClass"  VerticalOptions="Start" HorizontalOptions="Start" />
+                                <Label Text="{Binding RoundingAmnt,StringFormat = '{0:#,##0.0;(#,##0.0);Zero}'}}" Grid.Column="1" Grid.Row="1" StyleClass="LabelClass" FontAttributes="None" VerticalOptions="Start" HorizontalOptions="Start" XAlign="Start" />
+
+                            </Grid>
+                        </DataTemplate>
+                    </dxGrid:TemplateColumn.DisplayTemplate>
+                </dxGrid:TemplateColumn>
+
+            </dxGrid:GridControl.Columns>
+        </dxGrid:GridControl>
+
+    </ContentView.Content>
+</ContentView>

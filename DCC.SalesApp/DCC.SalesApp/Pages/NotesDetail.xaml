@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="DCC.SalesApp.Pages.NotesDetail">
+    <ContentPage.Content>
+        <StackLayout StyleClass="Stack">
+            <ScrollView >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="1" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Subject Name :" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"/>
+                    <Label  x:Name="textSubjectype" Grid.Column="1" Grid.Row="0" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="1"/>
+
+                    <Label Text="Activity Action :" Grid.Column="0" Grid.Row="2" StyleClass="LabelClass"/>
+                    <Label  x:Name="textActionName" Grid.Column="1" Grid.Row="2" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="3"/>
+
+                    <Label Text="Activity Type :" Grid.Column="0"  Grid.Row="4" StyleClass="LabelClass"/>
+                    <Label x:Name="textActivetype"  Grid.Column="1" Grid.Row="4" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="5"/>
+
+                    <Label Text="Details :" Grid.Column="0" Grid.Row="6" StyleClass="LabelClass"/>
+                    <Label x:Name="textDetails" Grid.Column="1" Grid.Row="6" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="7"/>
+
+                    <Label Text="Start Date :" Grid.Column="0" Grid.Row="8" StyleClass="LabelClass"/>
+                    <Label x:Name="textStartDate"     Grid.Column="1" Grid.Row="8" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="9"/>
+
+                    <Label Text="StartTime:" Grid.Column="0" Grid.Row="10" StyleClass="LabelClass"/>
+                    <Label x:Name="txtStartTime"  Grid.Column="1" Grid.Row="10" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="11"/>
+
+                    <Label Text="End Date :" Grid.Column="0" Grid.Row="12" StyleClass="LabelClass"/>
+                    <Label x:Name="textEndtDate"   Grid.Column="1" Grid.Row="12" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="13"/>
+
+
+                    <Label Text="EndTime:" Grid.Column="0" Grid.Row="14" StyleClass="LabelClass"/>
+                    <Label x:Name="txtEndTime" Grid.Column="1" Grid.Row="14" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="15"/>
+
+                    <Label Text="Priority:" Grid.Column="0" Grid.Row="16" StyleClass="LabelClass"/>
+                    <Label x:Name="txtPriority" Grid.Column="1" Grid.Row="16" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="17"/>
+
+                    <Label Text="Location:" Grid.Column="0" Grid.Row="18" StyleClass="LabelClass"/>
+                    <Label x:Name="txtLocation" Grid.Column="1" Grid.Row="18" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="19"/>
+
+                    <Label Text="Notes:" Grid.Column="0" Grid.Row="20" StyleClass="LabelClass"/>
+                    <Label x:Name="txtNotes" Grid.Column="1" Grid.Row="20" StyleClass="LabelClass1"/>
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="21"/>
+                    
+                    <Label Text="Attachment:" Grid.Column="0" Grid.Row="22" StyleClass="LabelClass"/>
+                    <Image x:Name="Att_Image" HorizontalOptions="Start" Grid.Column="1" Grid.Row="22"    HeightRequest="100" WidthRequest="100"  />
+                    <!--<Frame OutlineColor="#003366"  Grid.Column="1" Grid.Row="22"  >
+                        <Image x:Name="Att_Image"  Grid.Column="1" Grid.Row="22"    HeightRequest="50" WidthRequest="40"  />
+                    </Frame>-->
+                    <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="23"/>
+
+                    <Label Text="Status:" Grid.Column="0" Grid.Row="24" StyleClass="LabelClass"/>
+                    <Label x:Name="txtStatus" Grid.Column="1" Grid.Row="24" StyleClass="LabelClass1"/>
+                </Grid>
+            </ScrollView>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

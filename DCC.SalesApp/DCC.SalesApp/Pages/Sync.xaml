@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1"
+             x:Class="DCC.SalesApp.Pages.Sync">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnSync" Text="" Icon="sync.png"  Clicked="synced_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout StyleClass="Stack" >
+            <ListView x:Name="synclistView" HasUnevenRows="True" ItemsSource="{Binding SyncedTablelist}" >
+                <ListView.ItemTemplate >
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="20"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition  Height="35"/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Title}" XAlign="Start" x:Name="lblCustCode" Grid.Column="0"   StyleClass="LabelClass1"   />
+                                <Label Text="{Binding TableRows}" XAlign="Start" x:Name="lblTableRows" Grid.Column="1"   StyleClass="LabelClass1"   />
+                                <Image Grid.Column="2" HorizontalOptions="End">
+                                    <Image.Triggers>
+                                        <DataTrigger TargetType="Image" Binding="{Binding SyncStatus}" Value="false">
+                                            <Setter Property="Source" Value="off.png" />
+                                        </DataTrigger>
+                                        <DataTrigger TargetType="Image" Binding="{Binding SyncStatus}" Value="true">
+                                            <Setter Property="Source" Value="on.png" />
+                                        </DataTrigger>
+                                    </Image.Triggers>
+                                </Image>
+                            
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

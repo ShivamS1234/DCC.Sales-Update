@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+             x:Class="DCC.SalesApp.Pages.UserSettingPage">
+    <ContentPage.Content>
+        <StackLayout StyleClass="Stack" >
+            <Label Text="Settings for system" StyleClass="Header"  />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="KM for Near By customer search" x:Name="lbl_Km" StyleClass="LabelClass1" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start" VerticalOptions="Center"/>
+                <local:CustomEntry x:Name="txtKM" Text="" Keyboard="Numeric"  StyleClass="TextClass" WidthRequest="200"  Grid.Column="1" Grid.Row="0" HorizontalOptions="Start" VerticalOptions="Center"/>
+
+                <Label Text="Web server URL" x:Name="lbl_url" StyleClass="LabelClass1" Grid.Column="0" Grid.Row="1" HorizontalOptions="Start"  VerticalOptions="Center" />
+                <local:CustomEntry x:Name="txtUrl" Text=""  StyleClass="TextClass" WidthRequest="200" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start"  VerticalOptions="Center"/>
+
+                <Label Text="Demo System" x:Name="lbl_Demosys" StyleClass="LabelClass1" Grid.Column="0" Grid.Row="2"   HorizontalOptions="Start"  VerticalOptions="Center"/>
+                <Switch x:Name="DemoSys" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start"  VerticalOptions="Center" />
+
+                <Button x:Name="btnSubmit" Text="Submit"  StyleClass="BtnClass" Grid.Row="3"  HorizontalOptions="Center"  VerticalOptions="Center" Clicked="btnSubmit_Clicked"/>
+                <Button x:Name="btnCancel" Text="Cancel"  StyleClass="BtnClass" Grid.Row="3" Grid.Column="1"  HorizontalOptions="Center"  VerticalOptions="Center" Clicked="btnCancel_Clicked"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

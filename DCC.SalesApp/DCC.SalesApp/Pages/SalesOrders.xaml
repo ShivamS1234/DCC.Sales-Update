@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Pages.SalesOrders"
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1">
+    <ContentPage.Content>
+        <dxGrid:GridControl x:Name="_grdSalesOrders" RowHeight="55"  ItemsSource="{Binding Quotations}" AutoFilterPanelVisibility="true" AllowGroup="True" AllowGroupCollapse="True" AllowEditRows="False" SwipeButtonShowing="_grdSalesOrders_SwipeButtonShowing" SwipeButtonClick="_grdSalesOrders_SwipeButtonClick">
+            <!--RowTap="_grdOrderFulfill_RowTap"-->
+            <dxGrid:GridControl.Columns>
+                <dxGrid:DateColumn FieldName="PostDate"  IsGrouped="True" GroupInterval="DateRange" />
+                <!--<dxGrid:SwitchColumn x:Name="switchFultill" FieldName="CheckDelivered" Width="50" UnboundType="Boolean" UnboundExpression="false" />-->
+
+                <dxGrid:TemplateColumn FieldName="Quotations" Caption="Orders" AllowSort="False" >
+                    <dxGrid:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid BindingContext="{Binding Source}"  Padding="0,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding ID, StringFormat='Order ID: {0}'}"  XAlign="Start" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"  VerticalOptions="Start" HorizontalOptions="Start" />
+                                <Label Text="{Binding CustName, StringFormat='Customer Name: {0}'}" Grid.Row="0" Grid.Column="1" StyleClass="LabelClass" FontAttributes="None"  VerticalOptions="Start" HorizontalOptions="Start" />
+
+                                <Label Text="{Binding DueDate, StringFormat = 'Due Date: {0:dd-MMM-yy}'}}"  XAlign="Start" Grid.Column="0" Grid.Row="1" StyleClass="LabelClass" VerticalOptions="Start" HorizontalOptions="Start"   />
+                                <Label Text="{Binding CustRefNo,StringFormat = 'Reference No.: {0}'}" Grid.Column="1" Grid.Row="1" StyleClass="LabelClass" FontAttributes="None" VerticalOptions="Start" HorizontalOptions="Start" />
+
+
+                                <Label Text="{Binding DocTotal,StringFormat = '{0:#,##0.0;(#,##0.0);Zero}'}}"  XAlign="Start" Grid.Column="0" Grid.Row="2" StyleClass="LabelClass1"  VerticalOptions="Start" HorizontalOptions="Start"  />
+
+                            </Grid>
+                        </DataTemplate>
+                    </dxGrid:TemplateColumn.DisplayTemplate>
+                </dxGrid:TemplateColumn>
+
+            </dxGrid:GridControl.Columns>
+        </dxGrid:GridControl>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="BtnAdd"  Icon="plus.png"  Clicked="BtnAdd_Clicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+</ContentPage>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+             xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+             x:Class="DCC.SalesApp.Views.AbsentConfirmation"  >
+  <pages:PopupPage.Animation>
+    <animations:ScaleAnimation PositionIn="Center" PositionOut="Center" ScaleIn="1.1" ScaleOut="0.8" DurationIn="400" DurationOut="300" EasingIn="SinOut" EasingOut="SinIn" HasBackgroundAnimation="False"/>
+  </pages:PopupPage.Animation>
+  <ContentPage.Content >
+    <StackLayout Padding="5"  BackgroundColor="{StaticResource StackBgColor}"  >
+      <StackLayout StyleClass="Stack">
+        <Label Text="Confirmation"   HorizontalTextAlignment="Center" StyleClass="Header"  />
+        <Label x:Name="lblAttendanceMessage" Text=""   HorizontalTextAlignment="Center" StyleClass="LabelClass"  />
+        <Label Text=""/>
+        <Label x:Name="lblRemarks"   StyleClass="LabelHeader"  />
+        <Editor x:Name="Remarks"  StyleClass="TextClass" WidthRequest="200" />
+
+        <Label x:Name="lblGoalReason" Text="Leave Type"   StyleClass="LabelHeader"  />
+        <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="1"/>
+        <!--<controls:BindablePicker x:Name="rd_reason" SelectedIndex="{Binding ItemSelected}" StyleClass="RdClass"   />-->
+        <StackLayout x:Name="stkGoals">
+        </StackLayout>
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          <Button Text="Submit" x:Name="btnSubmit" Grid.Column="0" Grid.Row="0" Clicked="btnSubmit_Clicked" StyleClass="BtnClass" />
+          <Button Text="Cancel" x:Name="btnCancel" Grid.Column="1" Grid.Row="0" Clicked="OnClose" StyleClass="BtnClass" />
+        </Grid>
+      </StackLayout>
+    </StackLayout>
+
+  </ContentPage.Content>
+</pages:PopupPage>

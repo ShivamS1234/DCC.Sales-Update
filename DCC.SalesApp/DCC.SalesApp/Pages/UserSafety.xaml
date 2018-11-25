@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+             xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+             x:Class="DCC.SalesApp.Pages.UserSafety">
+
+    <ContentPage.Content>
+        <StackLayout StyleClass="Stack" >
+            <Label Text=""/>
+            <Label Text="Employee Safety Assurance Form" StyleClass="Header"   />
+            <Label Text="Mode of Travel" StyleClass="LabelHeader"   HorizontalOptions="Start" VerticalOptions="Start"  />
+            <!--<controls:BindableRadioGroup x:Name="rd_travelby" SelectedIndex="{Binding ItemSelected}" StyleClass="RdClass"  />-->
+            <ctrls:RadioGroup x:Name="rd_travelby"                     
+                      ItemsSource="{Binding RadioGroupSource}" StyleClass="RdClass"
+                      Orientation="Vertical"
+                              
+                      DisplayPath="Name"
+                      OnImg="radio1.png"
+                      OffImg="radio2.png"/>
+            <Label Text="#" x:Name="lbl_ans" IsVisible="False" StyleClass="LabelHeader"   HorizontalOptions="Start" VerticalOptions="Start"   />
+
+            <!--<ctrls:RadioGroup x:Name="rd_safety_eq"                        
+                      ItemsSource="{Binding RadioGroupSource}" StyleClass="RdClass"
+                      Orientation="Vertical"
+                      DisplayPath="Name"
+                      OnImg="radio1.png"
+                      OffImg="radio2.png"/>-->
+            <!--<controls:BindableRadioGroup x:Name="rd_safety_eq" SelectedIndex="{Binding ItemSelected}"  StyleClass="RdClass" />-->
+            <ctrls:CheckBox x:Name="rd_safety_eq" VerticalOptions="Start" OffImg="ck2.png" OnImg="ck1.png"/>
+            
+            <Label Text="Pledge" x:Name="lbl_Pledge" StyleClass="LabelHeader"  HorizontalOptions="Start" VerticalOptions="Start"  />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <ctrls:CheckBox x:Name="chkPledge" Grid.Row="0" Grid.Column="0" VerticalOptions="Start" OffImg="ck2.png" OnImg="ck1.png"/>
+                <Label Text="" x:Name="lbl_Pledge_Text"  StyleClass="LabelClass1" Grid.Row="0" Grid.Column="1" VerticalOptions="Start"  />
+            </Grid>
+        
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label Text="Odometer Reading" x:Name="lbl_SRead" StyleClass="LabelHeader" Grid.Column="0" Grid.Row="0"  HorizontalOptions="Start" VerticalOptions="Start"  />
+                <local:CustomEntry x:Name="txtSRead" Text="" Keyboard="Numeric"  StyleClass="TextClass" WidthRequest="100" HorizontalOptions="Start" Grid.Column="1" Grid.Row="0"/>
+                <Button x:Name="btnSubmit" Text="Submit"  StyleClass="BtnClass" HorizontalOptions="Start" Grid.Row="1" Grid.Column="0"  />
+                <Button x:Name="btnskip" Text="Not Working"  StyleClass="BtnClass" HorizontalOptions="Start" Grid.Row="1" Grid.Column="1" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

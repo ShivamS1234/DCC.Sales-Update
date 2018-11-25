@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+             x:Class="DCC.SalesApp.Pages.UpdateAccount">
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Info">
+        <StackLayout StyleClass="Stack">
+            <Grid x:Name="Updateaccuount">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="*" /> 
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>                
+                <!--<Image x:Name="Att_Image"  HeightRequest="100" WidthRequest="100" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"  />-->
+                <Frame OutlineColor="#003366" HeightRequest="100" WidthRequest="100" Grid.Column="0" Grid.Row="0"  StyleClass="BtnClass"  >
+                    <Image x:Name="Att_Image"  />
+                </Frame>
+                <Button x:Name="CameraButton" Text="Take Photo"  Grid.Column="0"  Grid.Row="1"  StyleClass="BtnClass"/>
+                <Button x:Name="GalaryPhoto" Text="Pick Photo" Grid.Column="1" Grid.Row="1"  StyleClass="BtnClass"/> 
+            </Grid>
+            
+            <ScrollView >
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions> 
+
+                    <Label Text="Email:" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass1"/>
+                    <local:CustomEntry x:Name="textEmail" Text="" Grid.Column="1"  Grid.Row="0" StyleClass="TextClass"/>                 
+
+                    <Label Text="Address :" Grid.Column="0"  Grid.Row="1" StyleClass="LabelClass1"/>
+                    <local:CustomEntry x:Name="textAddress" Grid.Column="1" Grid.Row="1" StyleClass="TextClass"/>
+                   
+                    <Label Text="Fist Name:" Grid.Column="0" Grid.Row="2" StyleClass="LabelClass1"/>
+                    <local:CustomEntry x:Name="textFistName" Grid.Column="1" Grid.Row="2" StyleClass="TextClass"/>                 
+
+                    <Label Text="Middle Name:" Grid.Column="0" Grid.Row="3" StyleClass="LabelClass1"/>
+                    <local:CustomEntry x:Name="txtMiddleName" Grid.Column="1" Grid.Row="3" StyleClass="TextClass"/>                     
+
+                    <Label Text="Last Name:" Grid.Column="0" Grid.Row="4" StyleClass="LabelClass1"/>
+                    <local:CustomEntry x:Name="textLastName" Grid.Column="1" Grid.Row="4" StyleClass="TextClass"/>                  
+
+                    <Label Text="Mobile Number :" Grid.Column="0" Grid.Row="5" StyleClass="LabelClass1"/>
+                    <local:CustomEntry x:Name="textMobileNum" Grid.Column="1" Grid.Row="5" StyleClass="TextClass"/>                    
+
+                    <Label Text="Password : " Grid.Column="0" Grid.Row="6"  StyleClass="LabelClass1"/>
+                    <local:CustomEntry x:Name="textPassword" Grid.Column="1" Grid.Row="6" StyleClass="TextClass"/>                
+
+                </Grid>
+            </ScrollView>
+            <Button x:Name="BtnUpdateEdit" Text="Update Account"  WidthRequest="100" StyleClass="BtnClass" Clicked="BtnUpdateEdit_Clicked" />
+           
+        </StackLayout>
+    </ContentPage>
+  
+</TabbedPage>

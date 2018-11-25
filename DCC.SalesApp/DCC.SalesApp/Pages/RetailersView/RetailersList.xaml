@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"             
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Name="retailerList"
+             x:Class="DCC.SalesApp.Pages.RetailersView.RetailersList"
+             xmlns:viewModel="clr-namespace:DCC.SalesApp.ViewModels.RetailerVM"
+             xmlns:helper="clr-namespace:DCC.SalesApp.Helpers">
+    <ContentPage.BindingContext>
+        <viewModel:RetailerListViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add New" Command="{Binding AddNewCommand}" CommandParameter="{Binding Source={x:Reference Name=retailerList}}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ListView x:Name="CustomerList" HasUnevenRows="True" ItemsSource="{Binding retailers}" SeparatorColor="Transparent" SelectedItem="{Binding selectedRetailer}"  Margin="10,10,10,10">
+            <ListView.Behaviors>
+                <helper:ItemSelectedToCommandBehavior Command="{Binding RetailerDetailCommand}" CommandParameter="{Binding Source={x:Reference Name=retailerList}}"/>
+            </ListView.Behaviors>
+            <ListView.ItemTemplate>
+                <DataTemplate>                    
+                    <ViewCell>                           
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <!--<ColumnDefinition Width="Auto"/>-->
+                                <ColumnDefinition Width="*"/>
+                                <!--<ColumnDefinition Width="Auto"/>-->
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Name}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontAttributes="Bold" FontSize="Medium"/>
+
+                            <Label Text="{Binding OverDueDays, StringFormat = 'Over Due Days : {0}'}"    Grid.Column="0" Grid.Row="1" FontSize="Small" />
+                            <Label Text="{Binding Balance,StringFormat = 'Balance : {0:#,##0.0;(#,##0.0);Zero}'}}"   Grid.Column="1" Grid.Row="1" FontSize="Small" />
+
+                            <Label Text="{Binding CrLimit,StringFormat = 'Credit Limit : {0:#,##0.0;(#,##0.0);Zero}'}}"   Grid.Column="0" Grid.Row="2" FontSize="Small"/>
+                            <Label Text="{Binding CreatedDate, StringFormat = 'Joined : {0:dd-MMM-yy}'}"  Grid.Column="1" Grid.Row="2" FontSize="Small" />
+                            <BoxView Color="Black" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" HeightRequest="2"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage.Content>
+</ContentPage>

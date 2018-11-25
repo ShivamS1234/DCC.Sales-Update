@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:gauge="clr-namespace:Syncfusion.SfGauge.XForms;assembly=Syncfusion.SfGauge.XForms"
+             xmlns:chart="clr-namespace:Syncfusion.SfChart.XForms;assembly=Syncfusion.SfChart.XForms"
+             x:Class="DCC.SalesApp.Pages.DashboardNew" >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnSync" Text="" Icon="sync.png"  Clicked="btnSync_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid RowSpacing="0" Margin="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>                
+            </Grid.RowDefinitions>            
+            <!--<BoxView Color="Red" Grid.Row="0" Grid.Column="0"/>-->
+            <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0" ColumnSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="ProfilePic.jpg" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" HorizontalOptions="Start" Aspect="Fill"/>
+                <StackLayout Grid.Row="2" Grid.Column="0" HorizontalOptions="Center" Spacing="0">
+                    <Label Text="Ashoke Kumar" FontSize="Small"/>
+                    <Label Text="Sales Person" FontSize="Micro"/>
+                </StackLayout>
+                <Label Text="Monthly Reports" FontSize="Small" Grid.Row="0" Grid.Column="1" HorizontalOptions="Center"/>
+                <Image Source="SaleGraph.jpg" Grid.Row="1" Grid.Column="1" HorizontalOptions="CenterAndExpand" Grid.RowSpan="2" Aspect="Fill"/>
+            </Grid>
+            <!--<BoxView Color="Green" Grid.Row="1" Grid.Column="0"/>-->
+            <Grid Grid.Row="1" Grid.Column="0" RowSpacing="0" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <!--<BoxView Grid.Row="0" Grid.Column="0" Color="AliceBlue"/>-->
+                <StackLayout Grid.Column="0" Grid.Row="0" VerticalOptions="Start" Spacing="0">
+                    <gauge:SfCircularGauge VerticalOptions="Start" HeightRequest="150">
+                        <gauge:SfCircularGauge.Headers>
+                            <gauge:Header Text="50%" ForegroundColor="Black" TextSize="18" FontAttributes="Bold" Position="0.5,0.5"  />
+                        </gauge:SfCircularGauge.Headers>
+                        <gauge:SfCircularGauge.Scales>
+                            <gauge:Scale RadiusFactor = ".8"  RimColor="#ed1c24" RimThickness="5"  ShowTicks="False" ShowLabels="False" StartAngle="180" SweepAngle="360"
+                               StartValue="0" EndValue="100" Interval="10" LabelOffset="0.75" LabelColor="#424242">
+                                <gauge:Scale.Pointers>
+                                    <gauge:RangePointer Color="#ed1c24" Thickness="10" Offset=".8" EnableAnimation="True" AnimationDuration="5" Value="50" />
+                                    <!--<gauge:NeedlePointer Thickness="7" LengthFactor="0.55" Color="LightGray"
+                                             KnobColor="White" TailColor="LightGray" TailLengthFactor="0.2"
+                                             Type="Triangle"  KnobRadius="12" Value="80"
+                                             AnimationDuration="5" TailStrokeWidth="2" TailStrokeColor="LightGray"
+                                             KnobStrokeColor="LightGray" KnobStrokeWidth="8"/>-->
+                                </gauge:Scale.Pointers>
+                            </gauge:Scale>
+                        </gauge:SfCircularGauge.Scales>
+                    </gauge:SfCircularGauge>
+                        <Label Text="Customers" HorizontalOptions="Center" VerticalOptions="Start" FontSize="12" TextColor="#000000"/>
+                </StackLayout>
+                <!--<BoxView Grid.Row="0" Grid.Column="1" Color="Beige"/>-->
+                    <StackLayout Grid.Column="1" Grid.Row="0" VerticalOptions="Start" Spacing="0">
+                    <gauge:SfCircularGauge VerticalOptions="Start" HeightRequest="150">
+                        <gauge:SfCircularGauge.Headers>
+                                <gauge:Header Text="35%" ForegroundColor="Black" TextSize="18" FontAttributes="Bold" Position="0.5,0.5"  />
+                        </gauge:SfCircularGauge.Headers>
+                        <gauge:SfCircularGauge.Scales>
+                            <gauge:Scale RadiusFactor = ".8"  RimColor="#ffce3e" RimThickness="5"  ShowTicks="False" ShowLabels="False" StartAngle="180" SweepAngle="360"
+                               StartValue="0" EndValue="100" Interval="10" LabelOffset="0.75" LabelColor="#ffce3e">
+                                <gauge:Scale.Pointers>
+                                    <gauge:RangePointer Color="#ffce3e" Thickness="10" Offset=".8" EnableAnimation="True" AnimationDuration="5" Value="35" />
+                                    <!--<gauge:NeedlePointer Thickness="7" LengthFactor="0.55" Color="LightGray"
+                                             KnobColor="White" TailColor="LightGray" TailLengthFactor="0.2"
+                                             Type="Triangle"  KnobRadius="12" Value="80"
+                                             AnimationDuration="5" TailStrokeWidth="2" TailStrokeColor="LightGray"
+                                             KnobStrokeColor="LightGray" KnobStrokeWidth="8"/>-->
+                                </gauge:Scale.Pointers>
+                            </gauge:Scale>
+                        </gauge:SfCircularGauge.Scales>
+                    </gauge:SfCircularGauge>
+                        <Label Text="Sales Orders" HorizontalOptions="Center" VerticalOptions="Start" FontSize="12" TextColor="#000000"/>
+                </StackLayout>
+                <!--<BoxView Grid.Row="0" Grid.Column="2" Color="Aquamarine"/>-->
+                    <StackLayout Grid.Column="2" Grid.Row="0" VerticalOptions="Start" Spacing="0">
+                    <gauge:SfCircularGauge VerticalOptions="Start" HeightRequest="150">
+                        <gauge:SfCircularGauge.Headers>
+                                <gauge:Header Text="75%" ForegroundColor="Black" TextSize="18" FontAttributes="Bold" Position="0.5,0.5"  />
+                        </gauge:SfCircularGauge.Headers>
+                        <gauge:SfCircularGauge.Scales>
+                            <gauge:Scale RadiusFactor = ".8"  RimColor="#8dc63f" RimThickness="5"  ShowTicks="False" ShowLabels="False" StartAngle="180" SweepAngle="360"
+                               StartValue="0" EndValue="100" Interval="10" LabelOffset="0.75" LabelColor="#424242">
+                                <gauge:Scale.Pointers>
+                                    <gauge:RangePointer Color="#8dc63f" Thickness="10" Offset=".8" EnableAnimation="True" AnimationDuration="5" Value="75" />
+                                    <!--<gauge:NeedlePointer Thickness="7" LengthFactor="0.55" Color="LightGray"
+                                             KnobColor="White" TailColor="LightGray" TailLengthFactor="0.2"
+                                             Type="Triangle"  KnobRadius="12" Value="80"
+                                             AnimationDuration="5" TailStrokeWidth="2" TailStrokeColor="LightGray"
+                                             KnobStrokeColor="LightGray" KnobStrokeWidth="8"/>-->
+                                </gauge:Scale.Pointers>
+                            </gauge:Scale>
+                        </gauge:SfCircularGauge.Scales>
+                    </gauge:SfCircularGauge>
+                        <Label Text="Case from customers" HorizontalOptions="Center" VerticalOptions="Start" FontSize="12" TextColor="#000000"/>
+                </StackLayout>
+            </Grid>
+            <!--<BoxView Color="Blue" Grid.Row="2" Grid.Column="0"/>-->
+            <Grid Grid.Row="2" Grid.Column="0" RowSpacing="0" ColumnSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--<Button Grid.Row="0" Grid.Column="0" Text="Order Fulfillment" ContentLayout="Top,0" Image="OrderFulfillment.png"/>-->
+                    <StackLayout Grid.Row="0" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Image Source="OrderFulfillment.png" HeightRequest="30" WidthRequest="30" />
+                        <Label Text="Order Fulfillment"  FontSize="12"/>
+                    </StackLayout>
+                    <!--<Button Grid.Row="0" Grid.Column="1" Text="Items"/>-->
+                    <StackLayout Grid.Row="0" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Image Source="Items.png" HeightRequest="30" WidthRequest="30" />
+                        <Label Text="Items"  FontSize="12"/>
+                    </StackLayout>
+                    <!--<Button Grid.Row="0" Grid.Column="2" Text="Quotations"/>-->
+                    <StackLayout Grid.Row="0" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Image Source="Quotation.png" HeightRequest="30" WidthRequest="30" />
+                        <Label Text="Quotations"  FontSize="12"/>
+                    </StackLayout>
+                    <!--<Button Grid.Row="1" Grid.Column="0" Text="KPI/Reports"/>-->
+                    <StackLayout Grid.Row="1" Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Image Source="KPIReports.png" HeightRequest="30" WidthRequest="30" />
+                        <Label Text="KPI/Reports"  FontSize="12"/>
+                    </StackLayout>
+                    <!--<Button Grid.Row="1" Grid.Column="1" Text="Nearby Customers"/>-->
+                    <StackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Image Source="NearbyPerson.png" HeightRequest="30" WidthRequest="30" />
+                        <Label Text="Nearby Customers"  FontSize="12"/>
+                    </StackLayout>
+                    <!--<Button Grid.Row="1" Grid.Column="2" Text="Notes"/>-->
+                    <StackLayout Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" VerticalOptions="Center" Spacing="10">
+                        <Image Source="Notes.png" HeightRequest="30" WidthRequest="30" />
+                        <Label Text="Notes"  FontSize="12"/>
+                    </StackLayout>
+                </Grid>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>    
+</ContentPage>

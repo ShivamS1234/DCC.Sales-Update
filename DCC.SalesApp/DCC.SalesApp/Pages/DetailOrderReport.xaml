@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Pages.DetailOrderReport"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfDataGrid.XForms;assembly=Syncfusion.SfDataGrid.XForms">
+            
+    <ContentPage.Content>
+        <StackLayout StyleClass="Stack">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Area" StyleClass="LabelClass" Grid.Row="0" Grid.Column="0"/>
+                <Picker x:Name="pkrArea" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" StyleClass="PickerStyle" ItemDisplayBinding="{Binding AreaCode}" Title="Select Area" SelectedIndexChanged="pkrArea_SelectedIndexChanged"/>
+                
+                <Label Text="Date Range" StyleClass="LabelClass" Grid.Row="1" Grid.Column="0"/>
+                <DatePicker x:Name="pkrFrom" Grid.Row="1" Grid.Column="1" StyleClass="PickerStyle"  DateSelected="pkrFrom_DateSelected"/>
+                <DatePicker x:Name="pkrTo" Grid.Row="1" Grid.Column="2" StyleClass="PickerStyle" DateSelected="pkrTo_DateSelected"/>
+
+                <Label Text="Sales Person" StyleClass="LabelClass" Grid.Row="2" Grid.Column="0"/>
+                <Picker x:Name="pkrSalesPerson" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" StyleClass="PickerStyle" ItemDisplayBinding="{Binding nameCode}" Title="Select User" SelectedIndexChanged="pkrSalesPerson_SelectedIndexChanged" />
+                
+                <Label Text="Customer" StyleClass="LabelClass" Grid.Row="3" Grid.Column="0"/>
+                <Picker x:Name="pkrCustomers" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" StyleClass="PickerStyle" ItemDisplayBinding="{Binding Name}" Title="Select Customer" SelectedIndexChanged="pkrCustomers_SelectedIndexChanged"/>
+            </Grid>            
+            <syncfusion:SfDataGrid x:Name="dataGrid" AutoGenerateColumns="False" GroupingMode="Multiple" AllowGroupExpandCollapse="True">
+                <syncfusion:SfDataGrid.Columns x:TypeArguments="syncfusion:Columns">
+                    <syncfusion:GridTextColumn HeaderText="FirstName" MappingName="FirstName" IsHidden="True"/>
+                    <syncfusion:GridTextColumn HeaderText="AreaCode" MappingName="AreaCode" IsHidden="True"/>
+                    <syncfusion:GridTextColumn HeaderText="CustName" MappingName="CustName"  IsHidden="True"/>
+                    <syncfusion:GridNumericColumn HeaderText="ID" MappingName="ID" NumberDecimalDigits="0" />
+                    <syncfusion:GridTextColumn HeaderText="ItemName" MappingName="ItemName" />
+                    <syncfusion:GridNumericColumn HeaderText="Quantity" MappingName="Quantity" NumberDecimalDigits="0" />
+                    <syncfusion:GridNumericColumn HeaderText="DeliveredQty" MappingName="DeliveredQty" />
+                    <syncfusion:GridNumericColumn HeaderText="OpenQty" MappingName="OpenQty" />
+                    <syncfusion:GridNumericColumn HeaderText="Rate" MappingName="Rate" />
+                </syncfusion:SfDataGrid.Columns>
+            </syncfusion:SfDataGrid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

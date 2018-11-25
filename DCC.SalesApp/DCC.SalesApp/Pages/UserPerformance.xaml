@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"   
+             xmlns:local="clr-namespace:DCC.SalesApp.Pages"
+             x:Class="DCC.SalesApp.Pages.UserPerformance">
+    <StackLayout StyleClass="Stack">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="15"/>
+                <RowDefinition  Height="15"/>
+                <RowDefinition  Height="15"/>
+                <RowDefinition  Height="15"/>
+                <RowDefinition  Height="15"/>
+                <RowDefinition  Height="15"/>
+                <RowDefinition  Height="15"/>
+                <RowDefinition  Height="15"/>
+            </Grid.RowDefinitions>
+            <Frame OutlineColor="#003366" Grid.Row="0" Grid.Column="0" Grid.RowSpan="6" HeightRequest="60">
+                <Image x:Name="UserImage"/>
+            </Frame>
+            <Label Grid.Row="0" Grid.Column="1" Text="User Name" StyleClass="LabelClass1"/>
+            <Label Grid.Row="1" Grid.Column="1" Text="Outlets Visited" StyleClass="LabelClass1"/>
+            <Label Grid.Row="2" Grid.Column="1" Text="Open Order(Yesterday)" StyleClass="LabelClass1"/>
+            <Label Grid.Row="3" Grid.Column="1" Text="Open Order(Today)" StyleClass="LabelClass1"/>
+            <Label Grid.Row="4" Grid.Column="1" Text="Orders Closed (Today)" StyleClass="LabelClass1"/>
+            <Label Grid.Row="5" Grid.Column="1" Text="Deliveries Made(Today)" StyleClass="LabelClass1"/>
+            <Label Grid.Row="6" Grid.Column="1" Text="Payment Received (Today)" StyleClass="LabelClass1"/>
+
+            <Label x:Name="lblUser" Grid.Row="0" Grid.Column="2" Text="Krishna Kumar Singh" StyleClass="LabelClass"/>
+            <Label x:Name="lblVisited" Grid.Row="1" Grid.Column="2" Text="" StyleClass="LabelClass"/>
+            <Label x:Name="lblOrderY" Grid.Row="2" Grid.Column="2" Text="10" StyleClass="LabelClass"/>
+            <Label x:Name="lblOrderT" Grid.Row="3" Grid.Column="2" Text="10" StyleClass="LabelClass"/>
+            <Label x:Name="lblOrderC" Grid.Row="4" Grid.Column="2" Text="5" StyleClass="LabelClass"/>
+            <Label x:Name="lblDeliveryT" Grid.Row="5" Grid.Column="2" Text="12" StyleClass="LabelClass"/>
+            <Label x:Name="lblPaymentR" Grid.Row="6" Grid.Column="2" Text="1200" StyleClass="LabelClass"/>
+
+        </Grid>
+        <Grid></Grid>
+    </StackLayout>
+        
+ 
+</ContentPage>

@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Pages.QuotationProducts"
+             xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1"
+            xmlns:sync="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:numeric="clr-namespace:Syncfusion.SfNumericUpDown.XForms;assembly=Syncfusion.SfNumericUpDown.XForms"
+             xmlns:sfpick="clr-namespace:Syncfusion.SfPicker.XForms;assembly=Syncfusion.SfPicker.XForms">
+    <ContentPage x:Name="cProducts" Title="Products" Appearing="cProducts_Appearing">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--<Picker x:Name="pkrCatagory" Grid.Row="0"  Title="Catagory" Grid.Column="0" StyleClass="PickerStyle" ItemDisplayBinding="{Binding Name}" SelectedIndexChanged="pkrCatagory_SelectedIndexChanged"/>-->
+            <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                <Label x:Name="pkrCatagory" Text="Choose Customer" StyleClass="LabelClass">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image Source="nextpage.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <!--<Picker x:Name="pkrSubCatagory" Grid.Row="0" Title="Sub-Catagory" Grid.Column="1" StyleClass="PickerStyle" ItemDisplayBinding="{Binding Name}" SelectedIndexChanged="pkrSubCatagory_SelectedIndexChanged"/>-->
+            <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                <Label x:Name="pkrSubCatagory" Text="Choose Customer"  StyleClass="LabelClass">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image Source="nextpage.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="Start">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </StackLayout>
+            <!--<dxGrid:GridControl x:Name="IteamDetail" ItemsSource="{Binding SaleProduct}"  RowHeight="150"  AutoFilterPanelVisibility="true" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" AllowDeleteRows="True"
+                      >
+                <dxGrid:GridControl.Columns>
+                    <dxGrid:TemplateColumn FieldName="name" Caption="Product List" Width="200" AllowGroup="False" AllowSort="False" >
+                        <dxGrid:TemplateColumn.DisplayTemplate>
+                            <DataTemplate>
+                                <Grid HeightRequest="10" x:Name="ImageGredd" BindingContext="{Binding Source}" Padding="0,5">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="80" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="80"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Image  Source="{Binding StreamImage}" Grid.Column="0" Grid.Row="0"  HeightRequest="30" WidthRequest="40" ></Image>
+                                    <Grid  Padding="0,5,0,5" Grid.Column="1" Grid.Row="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <StackLayout>
+                                            <Label Text="{Binding name, StringFormat='Item Name: {0}'}"  Grid.Column="0" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Start" StyleClass="LabelClass" />
+                                            <Label Text="{Binding code, StringFormat = 'Item Code: {0}'}" Grid.Column="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Start" StyleClass="LabelClass"  />
+                                            <Label Text="{Binding price, StringFormat = 'Price: {0}'}" Grid.Column="0" Grid.Row="2" VerticalOptions="Start" HorizontalOptions="Start" StyleClass="LabelClass"  />
+                                            <Label Text="{Binding OnHand, StringFormat = 'Available Qty.: {0}'}" Grid.Column="0" Grid.Row="3" VerticalOptions="Start" HorizontalOptions="Start" StyleClass="LabelClass"  />
+                                            <Label Text="{Binding UoM, StringFormat = 'UOM: {0}'}" Grid.Column="0" Grid.Row="3" VerticalOptions="Start" HorizontalOptions="Start" StyleClass="LabelClass"  />
+                                            --><!--<Entry x:Name="txtQty" StyleClass="TextClass" Grid.Column="0" Grid.Row="4"  />-->
+                                            <!--<Label Text="{Binding CreatedDate, StringFormat ='{0:MMMM dd, yyyy}' }" Grid.Column="0" Grid.Row="2" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                            <Label Text="Quantity"/>
+                                            <Entry x:Name="entryQuantity" Text=""/>--><!--
+                                        </StackLayout>
+                                    </Grid>
+                                </Grid>
+                            </DataTemplate>
+                        </dxGrid:TemplateColumn.DisplayTemplate>
+                    </dxGrid:TemplateColumn>
+                    <dxGrid:TextColumn FieldName="SaleQty" Caption="Quantity" Width="80" />
+                </dxGrid:GridControl.Columns>
+            </dxGrid:GridControl>-->
+            <sync:SfListView x:Name="IteamDetail" ItemSize="160" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
+                <sync:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="120" Margin="0" Padding="0" RowSpacing="0" BackgroundColor="White">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="1"/>
+                            </Grid.RowDefinitions>
+                            <Grid Padding="0" ColumnSpacing="0" Margin="16">
+                                <Grid.Margin>
+                                    <OnPlatform x:TypeArguments="Thickness">
+                                        <OnPlatform.Android>16</OnPlatform.Android>
+                                        <OnPlatform.iOS>15,12,15,12</OnPlatform.iOS>
+                                        <OnPlatform.WinPhone>15,12,15,12</OnPlatform.WinPhone>
+                                    </OnPlatform>
+                                </Grid.Margin>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.4*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding StreamImage}" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center" HeightRequest="100" WidthRequest="100"/>
+                                <Grid Grid.Column="1" Padding="0" RowSpacing="0">
+                                    <Grid.Margin>
+                                        <OnPlatform x:TypeArguments="Thickness">
+                                            <OnPlatform.Android>16,0,0,0</OnPlatform.Android>
+                                            <OnPlatform.iOS>12,0,0,0</OnPlatform.iOS>
+                                            <OnPlatform.WinPhone>12,0,0,0</OnPlatform.WinPhone>
+                                        </OnPlatform>
+                                    </Grid.Margin>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                    <Label Text="{Binding name, StringFormat='Name: {0}'}" HorizontalOptions="Start" Margin="0,0,0,4" FontSize="16" LineBreakMode="NoWrap">
+                                        <!--<Label.Opacity>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <OnPlatform.Android>0.87</OnPlatform.Android>
+                                        <OnPlatform.iOS>1</OnPlatform.iOS>
+                                        <OnPlatform.WinPhone>1</OnPlatform.WinPhone>
+                                    </OnPlatform>
+                                </Label.Opacity>-->
+                                        <Label.TextColor>
+                                            <OnPlatform x:TypeArguments="Color">
+                                                <OnPlatform.Android>#000000</OnPlatform.Android>
+                                                <OnPlatform.iOS>#333333</OnPlatform.iOS>
+                                                <OnPlatform.WinPhone>#333333</OnPlatform.WinPhone>
+                                            </OnPlatform>
+                                        </Label.TextColor>
+                                    </Label>
+                                    <Label Text="{Binding code, StringFormat='Code: {0}'}" FontSize="14" Grid.Row="1" HorizontalOptions="Start">
+                                        <Label.TextColor>
+                                            <OnPlatform x:TypeArguments="Color">
+                                                <OnPlatform.Android>#000000</OnPlatform.Android>
+                                                <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                                                <OnPlatform.WinPhone>#4C4C4C</OnPlatform.WinPhone>
+                                            </OnPlatform>
+                                        </Label.TextColor>
+                                        <!--<Label.Opacity>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <OnPlatform.Android>0.54</OnPlatform.Android>
+                                        <OnPlatform.iOS>1</OnPlatform.iOS>
+                                        <OnPlatform.WinPhone>1</OnPlatform.WinPhone>
+                                    </OnPlatform>
+                                </Label.Opacity>-->
+                                    </Label>
+                                    <Label Text="{Binding OnHand, StringFormat='Qty: {0}'}" FontSize="14" Grid.Row="2" HorizontalOptions="Start">
+                                        <Label.TextColor>
+                                            <OnPlatform x:TypeArguments="Color">
+                                                <OnPlatform.Android>#000000</OnPlatform.Android>
+                                                <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                                                <OnPlatform.WinPhone>#4C4C4C</OnPlatform.WinPhone>
+                                            </OnPlatform>
+                                        </Label.TextColor>
+                                        <!--<Label.Opacity>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <OnPlatform.Android>0.54</OnPlatform.Android>
+                                        <OnPlatform.iOS>1</OnPlatform.iOS>
+                                        <OnPlatform.WinPhone>1</OnPlatform.WinPhone>
+                                    </OnPlatform>
+                                </Label.Opacity>-->
+                                    </Label>
+                                    <Label Text="{Binding UoM, StringFormat='UoM: {0}'}" FontSize="14" Grid.Row="3" HorizontalOptions="Start">
+                                        <Label.TextColor>
+                                            <OnPlatform x:TypeArguments="Color">
+                                                <OnPlatform.Android>#000000</OnPlatform.Android>
+                                                <OnPlatform.iOS>#757575</OnPlatform.iOS>
+                                                <OnPlatform.WinPhone>#4C4C4C</OnPlatform.WinPhone>
+                                            </OnPlatform>
+                                        </Label.TextColor>
+                                        <!--<Label.Opacity>
+                                    <OnPlatform x:TypeArguments="x:Double">
+                                        <OnPlatform.Android>0.54</OnPlatform.Android>
+                                        <OnPlatform.iOS>1</OnPlatform.iOS>
+                                        <OnPlatform.WinPhone>1</OnPlatform.WinPhone>
+                                    </OnPlatform>
+                                </Label.Opacity>-->
+                                    </Label>
+
+                                    <Grid Grid.Row="4" Padding="0" ColumnSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Text="{Binding price, StringFormat='Price: {0}'}" VerticalOptions="Start" FontAttributes="Bold" 
+                                               HorizontalOptions="Start" FontSize="16">
+                                            <Label.TextColor>
+                                                <OnPlatform x:TypeArguments="Color">
+                                                    <OnPlatform.Android>#009688</OnPlatform.Android>
+                                                    <OnPlatform.iOS>#1C73F2</OnPlatform.iOS>
+                                                    <OnPlatform.WinPhone>#0078D7</OnPlatform.WinPhone>
+                                                </OnPlatform>
+                                            </Label.TextColor>
+                                            <Label.Margin>
+                                                <OnPlatform x:TypeArguments="Thickness">
+                                                    <OnPlatform.Android>0,16,0,0</OnPlatform.Android>
+                                                    <OnPlatform.iOS>0,12,0,0</OnPlatform.iOS>
+                                                    <OnPlatform.WinPhone>0,12,0,0</OnPlatform.WinPhone>
+                                                </OnPlatform>
+                                            </Label.Margin>
+                                        </Label>
+                                        <!--<Button Grid.Column="1" x:Name="addButton" FontSize="16" Text="ADD" BorderWidth="1"  WidthRequest="80"
+                                                VerticalOptions="CenterAndExpand" HorizontalOptions="End"  >
+                                        <Button.BackgroundColor>
+                                            <OnPlatform x:TypeArguments="Color">
+                                                <OnPlatform.Android>#009688</OnPlatform.Android>
+                                                <OnPlatform.iOS>#FFFFFF</OnPlatform.iOS>
+                                                <OnPlatform.WinPhone>#C9C9C9</OnPlatform.WinPhone>
+                                            </OnPlatform>
+                                        </Button.BackgroundColor>
+                                        <Button.BorderColor>
+                                            <OnPlatform x:TypeArguments="Color">
+                                                <OnPlatform.Android>#009688</OnPlatform.Android>
+                                                <OnPlatform.iOS>#1C73F2</OnPlatform.iOS>
+                                                <OnPlatform.WinPhone>#C9C9C9</OnPlatform.WinPhone>
+                                            </OnPlatform>
+                                        </Button.BorderColor>
+                                        <Button.TextColor>
+                                            <OnPlatform x:TypeArguments="Color">
+                                                <OnPlatform.Android>#FFFFFF</OnPlatform.Android>
+                                                <OnPlatform.iOS>#1C73F2</OnPlatform.iOS>
+                                                <OnPlatform.WinPhone>#000000</OnPlatform.WinPhone>
+                                            </OnPlatform>
+                                        </Button.TextColor>
+                                    </Button>-->
+                                        <!--<numeric:SfNumericUpDown Grid.Column="1"  x:Name="numericUpDown" MaximumDecimalDigits="0"                                                             
+                                                                HorizontalOptions="End" VerticalOptions="Center" AllowNull="false" 
+                                                                FormatString="n" Watermark="Units" TextAlignment="Center"
+                                                                SpinButtonAlignment="Both" UpDownButtonColor="#036890"
+                                                                Value="{Binding SaleQty}" TextColor="#036890">
+                                           
+                                        </numeric:SfNumericUpDown>-->
+                                        <numeric:SfNumericUpDown Grid.Column="1" x:Name="numericUpDown" Value="{Binding SaleQty}" SpinButtonAlignment="Both" UpDownButtonColor="#036890" TextColor="#036890" MaximumDecimalDigits="0" Minimum="0"/>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                            <BoxView x:Name="boxView" Grid.Row="1" BackgroundColor="#EAEAEA"/>
+                        </Grid>
+                    </DataTemplate>
+                </sync:SfListView.ItemTemplate>
+                <!--<sync:SfListView.LoadMoreTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Label Text="Load More Items" TextColor="Black" BackgroundColor="AliceBlue"
+                           HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+                           IsVisible="{Binding IsBusy, Converter={StaticResource inverseBoolConverter}}" />
+                        <sync:LoadMoreIndicator Color="Red" IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}" VerticalOptions="Center"/>
+                    </Grid>
+                </DataTemplate>
+            </sync:SfListView.LoadMoreTemplate>-->
+            </sync:SfListView>
+        </Grid>
+    </ContentPage>
+    <ContentPage x:Name="cSummary" Title="Summary" Appearing="cSummary_Appearing">
+        <ContentPage.ToolbarItems>
+            <ToolbarItem x:Name="toolbarSave" Text="Save" Priority="0" Clicked="toolbarSave_Clicked" />
+        </ContentPage.ToolbarItems>
+        <StackLayout>
+            <ScrollView VerticalOptions="Center">
+        <dxGrid:GridControl x:Name="gridSummary" ItemsSource="{Binding SaleProduct}" IsReadOnly="True">
+            <dxGrid:GridControl.Columns>
+                <!--<dxGrid:TextColumn FieldName="code" Caption="Code"/>-->
+                <dxGrid:TextColumn FieldName="product" Caption="Product"/>
+               <dxGrid:TextColumn FieldName="UoM" Caption="Unit"/>
+                <dxGrid:NumberColumn FieldName="SaleQty" Caption="Quantity" Width="20"/>
+                    <dxGrid:NumberColumn FieldName="price" Caption="Price" DisplayFormat="##,##,##,##0.00" />
+                    <dxGrid:NumberColumn UnboundType="Decimal" UnboundExpression="[SaleQty] * [price] * [TaxPer]/100" FieldName="Tax" Caption="Tax" DisplayFormat="##,##,##,##0.00"/>
+                    <dxGrid:NumberColumn FieldName="Total" UnboundType="Decimal"  UnboundExpression="[SaleQty] * [price]" IsReadOnly="True" DisplayFormat="##,##,##,##0.00"/>
+            </dxGrid:GridControl.Columns>
+            <!--<dxGrid:GridControl.TotalSummaries>
+
+              <dxGrid:GridColumnSummary  FieldName="Tax" Type="Sum" />
+                <dxGrid:GridColumnSummary FieldName="Total" Type="Sum" />
+
+            </dxGrid:GridControl.TotalSummaries>-->
+
+            </dxGrid:GridControl>
+            </ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition Height="1"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <Label Text="Gross Total" Grid.Row="0" Grid.Column="0" StyleClass="LabelClass1" HorizontalOptions="End"/>
+                <Label Text="Tax Total" Grid.Row="1" Grid.Column="0" StyleClass="LabelClass1" HorizontalOptions="End"/>
+                <Label Text="Net Total" Grid.Row="2" Grid.Column="0" StyleClass="LabelClass1" HorizontalOptions="End"/>
+
+                <Label x:Name="txtGTotal"  Grid.Row="0" Grid.Column="1" StyleClass="LabelClass1" HorizontalOptions="End"/>
+                <Label x:Name="txtTTotal"  Grid.Row="1" Grid.Column="1" StyleClass="LabelClass1" HorizontalOptions="End"/>
+                <Label x:Name="txtNTotal"  Grid.Row="2" Grid.Column="1" StyleClass="LabelClass1" HorizontalOptions="End"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="3"/>
+
+            </Grid>
+        </StackLayout>
+    </ContentPage>
+
+</TabbedPage>

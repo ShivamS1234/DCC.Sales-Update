@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Pages.Attendance">
+    <ContentPage.Content>
+        <StackLayout StyleClass="Stack">
+            <Label Text=""/>
+            <Label Text="Mark My Attendance"   HorizontalTextAlignment="Center" StyleClass="Header"  />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Frame OutlineColor="#003366"   >
+                    <Image x:Name="Att_Image" Grid.Row="0" />
+                </Frame>
+                <Grid Grid.Column="1" VerticalOptions="Start">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="LblUserName"  Grid.Row ="0" Grid.Column="0" StyleClass="LabelHeader"/>
+                    <Label x:Name="LblUserId"  Grid.Row ="1" Grid.Column="0" StyleClass="LabelHeader"/>
+                </Grid>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Address" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"/>
+                <Label x:Name="LblAddress" Grid.Column="1"  Grid.Row="0" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="1"/>
+                <Label Text="Phone" Grid.Column="0"  Grid.Row="2" StyleClass="LabelClass"/>
+                <Label x:Name="LblPhone" Grid.Column="1" Grid.Row="2" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="3"/>
+                <Label Text="Email" Grid.Column="0" Grid.Row="4" StyleClass="LabelHeader"/>
+                <Label x:Name="LblEmail" Grid.Column="1" Grid.Row="4" StyleClass="LabelClass"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="5"/>
+                <Label Text="Designation" Grid.Column="0" Grid.Row="6" StyleClass="LabelHeader"/>
+                <Label x:Name="LblDesignation" Grid.Column="1" Grid.Row="6" StyleClass="LabelClass"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="7"/>
+                <Label Text="Annual Leave" Grid.Column="0" Grid.Row="8" StyleClass="LabelHeader"/>
+                <Button x:Name="btn_Present" Grid.Row ="9" Grid.Column="0" Text="Present" StyleClass="BtnClass"  />
+                <Button x:Name="btn_Absent"  Grid.Row ="9" Grid.Column="1" Text="Absent"  StyleClass="BtnClass" />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

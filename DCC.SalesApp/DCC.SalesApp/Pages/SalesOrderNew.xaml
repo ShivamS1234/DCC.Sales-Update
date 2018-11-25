@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Class="DCC.SalesApp.Pages.SalesOrderNew" >
+             <!--BackgroundImage="bg1.png"-->
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem x:Name="toolbarSave" Text="Save" Priority="0" Clicked="toolbarSave_Clicked" />-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>        
+        <StackLayout StyleClass="Stack">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label x:Name="lbldate" Text="Order Date" Grid.Row="0" Grid.Column="0" StyleClass="LabelClass"/>
+                <DatePicker  x:Name="CalStartDate" Grid.Row="0" Grid.Column="1" Format="dd-MMM-yy" StyleClass="PickerStyle"/>
+
+                <Label x:Name="lblDeldate" Text="Delivery Date" Grid.Row="1" Grid.Column="0" StyleClass="LabelClass"/>
+                <DatePicker  x:Name="CalDelDate" Grid.Row="1" Grid.Column="1" Format="dd-MMM-yy" StyleClass="PickerStyle"/>
+
+                <Label x:Name="lblCustomerName" Text="Customer Name" Grid.Row="2" Grid.Column="0" StyleClass="LabelClass"/>
+                <!--<Picker ItemDisplayBinding="{Binding nameCode}" WidthRequest="100" x:Name="pkrCustomer" Grid.Row="2" Grid.Column="1" StyleClass="PickerStyle" SelectedIndexChanged="pkrCustomer_SelectedIndexChanged"/>-->
+                <Label x:Name="pkrCustomer" Text="Choose Customer" Grid.Row="2" Grid.Column="1" StyleClass="LabelClass">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+                <Image Source="nextpage.png" Grid.Row="2" Grid.Column="1" HeightRequest="30" WidthRequest="30" HorizontalOptions="End">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Label x:Name="lblCustomerRefNo" Text="Customer Ref No." Grid.Row="3" Grid.Column="0" StyleClass="LabelClass"/>
+                <local:CustomEntry x:Name="txtCustRefNo" StyleClass="TextClass" Grid.Row="3" Grid.Column="1" />
+
+                <Label x:Name="lblCPerson" Text="Contact Person" Grid.Row="4" Grid.Column="0" StyleClass="LabelClass"/>
+                <Label x:Name="lblContactPerson" Text="" Grid.Row="4" Grid.Column="1" StyleClass="LabelClass"/>
+
+                <Label x:Name="lblArea" Text="Location" Grid.Row="5" Grid.Column="0" StyleClass="LabelClass"/>
+                <local:CustomEntry x:Name="txtArea" StyleClass="TextClass" Grid.Row="5" Grid.Column="1" />
+
+                <Label x:Name="lblBilling" Text="Billing Address" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"  StyleClass="LabelClass"/>
+                <Picker x:Name="pkrBilling" WidthRequest="100" Grid.Row="6" Grid.Column="1" ItemDisplayBinding="{Binding AddressCode}" StyleClass="PickerStyle" SelectedIndexChanged="pkrBilling_SelectedIndexChanged" HeightRequest="30"/>
+                <local:CustomEntry x:Name="txtBilling" StyleClass="TextClass" Grid.Row="7" Grid.Column="1"/>
+
+                <Label x:Name="lblShipping" Text="Shipping Address" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2" StyleClass="LabelClass"/>
+                <Picker x:Name="pkrShipping" WidthRequest="100" Grid.Row="8" Grid.Column="1" ItemDisplayBinding="{Binding AddressCode}" StyleClass="PickerStyle" SelectedIndexChanged="pkrShipping_SelectedIndexChanged" HeightRequest="30"/>
+                <local:CustomEntry x:Name="txtShipping" StyleClass="TextClass" Grid.Row="9" Grid.Column="1"/>
+
+                <Button x:Name="btnProducts" Text="View Products" StyleClass="BtnClass"  WidthRequest="100"  HorizontalOptions="Center" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" Clicked="toolbarSave_Clicked"/>
+                <!--<Label x:Name="lblBillingAddress" Text="Billing Address" Grid.Row="3" Grid.Column="0" StyleClass="LabelClass"/>
+                <Editor x:Name="edBillingAddress" Text="I am Editor" Grid.Row="3" HeightRequest="80" Grid.Column="1" />-->
+                
+                
+            </Grid>
+            
+
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+               xmlns:local="clr-namespace:DCC.SalesApp.Pages"
+              xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"           
+             xmlns:forms="clr-namespace:SignaturePad.Forms;assembly=SignaturePad.Forms"           
+             x:Class="DCC.SalesApp.Pages.AddSignature">
+
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation PositionIn="Center" PositionOut="Center" ScaleIn="1.1" ScaleOut="0.8" DurationIn="350"
+     DurationOut="300" EasingIn="SinOut" EasingOut="SinIn" HasBackgroundAnimation="False" />
+    </pages:PopupPage.Animation>
+    <ContentPage.Content>
+        <StackLayout>
+            <forms:SignaturePadView x:Name="PadView"
+                                HeightRequest="250"
+                                WidthRequest="90"
+                                BackgroundColor="White"
+                                StrokeColor="Black"
+                                StrokeWidth="1" />
+            <Grid x:Name="Updateaccuount">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <!--<Frame OutlineColor="#003366"  >
+                    <Image x:Name="Att_Image" Grid.Row="0" Grid.Column="0"  />
+                </Frame>-->
+                <Button x:Name="Save" Text="Save" StyleClass="BtnClass" Grid.Row="0" Grid.Column="0"  Clicked="SaveButton_Clicked" />
+                <Button x:Name="Cancel" Text="Clear" StyleClass="BtnClass" Grid.Row="0" Grid.Column="1"  Clicked="ClearButton_Clicked"  />
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</pages:PopupPage>

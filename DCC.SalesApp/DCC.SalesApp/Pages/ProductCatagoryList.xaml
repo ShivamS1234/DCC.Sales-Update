@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Pages.ProductCatagoryList"
+             xmlns:syncfusion="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms">
+    <ContentPage.Content>
+        <StackLayout>
+            <SearchBar x:Name="searchBar" TextChanged="searchBar_TextChanged"/>
+            <syncfusion:SfListView x:Name="listView" 
+                   ItemsSource="{Binding BookInfo}"
+                   ItemSize="50" ItemTapped="listView_ItemTapped">
+                <syncfusion:SfListView.GroupHeaderTemplate>
+                    <DataTemplate x:Name="GroupHeaderTemplate"  >
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Grid BackgroundColor="#E4E4E4" Padding="5" >
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Key}" FontSize="21" FontAttributes="Bold" />
+                                    <!--<Label Text="{Binding Items,Converter={StaticResource Converter}}" Grid.Column="1" />-->
+                                </Grid>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </syncfusion:SfListView.GroupHeaderTemplate>
+                <syncfusion:SfListView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.5*" />
+                                <!--<RowDefinition Height="0.5*" />-->
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <!--<ColumnDefinition Width="50"/>-->
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Teal" FontSize="18" Grid.Column="0" />
+                            <!--<Image Source="iconUsername.png" VerticalOptions="Center" Grid.Column="0" Grid.RowSpan="2"/>
+                            <Label Grid.Row="1" Grid.Column="1" Text="{Binding Address}" TextColor="Teal" FontSize="15"/>-->
+                        </Grid>
+                    </DataTemplate>
+                </syncfusion:SfListView.ItemTemplate>
+            </syncfusion:SfListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

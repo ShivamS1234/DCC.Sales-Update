@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms" 
+             xmlns:views="clr-namespace:DCC.SalesApp.Views"
+             x:Class="DCC.SalesApp.Pages.Dashboard"
+             Title="DashBoard" >
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnSync" Text="" Icon="sync.png"  Clicked="synced_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout  StyleClass="Stack" x:Name="DashboardPageView"  >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="45"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="45"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="45"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="btnphone1" Text="" ContentLayout="Top,0"  Grid.Row="0" Grid.Column="0"  Image="dashboardorders.png"  StyleClass="BtnClass1" />
+                    <Button x:Name="btnphone2" Text="" ContentLayout="Top,0"  Grid.Row="0" Grid.Column="1"  Image="dashboardcust.png"  StyleClass="BtnClass1"/>
+                    <Button x:Name="btnphone3" Text="" ContentLayout="Top,0"  Grid.Row="0" Grid.Column="2"  Image="dashboarditems.png"  StyleClass="BtnClass1" />
+
+                    <Label Text="Order FulFillment" StyleClass="LabelClass" Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Start"  />
+                    <Label Text="Customers" StyleClass="LabelClass"  Grid.Row="1" Grid.Column="1"  HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+                    <Label Text="Items" StyleClass="LabelClass" Grid.Row="1" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+
+                    <Button x:Name="btnphone4" Text="" ContentLayout="Top,0"  Grid.Row="2" Grid.Column="0"  Image="dashboardordersf.png"  StyleClass="BtnClass1"/>
+                    <Button x:Name="btnphone5" Text="" ContentLayout="Top,0"  Grid.Row="2" Grid.Column="1"  Image="dashboardquot.png"  StyleClass="BtnClass1" />
+                    <Button x:Name="btnphone6" Text="" ContentLayout="Top,0"  Grid.Row="2" Grid.Column="2"  Image="dashboardnotes.png"  StyleClass="BtnClass1"/>
+
+                    <Label Text="Orders" StyleClass="LabelClass" Grid.Row="3" Grid.Column="0" HorizontalTextAlignment="Center"  VerticalTextAlignment="Start" />
+                    <Label Text="Quotations" StyleClass="LabelClass" Grid.Row="3" Grid.Column="1"  HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+                    <Label Text="Notes" StyleClass="LabelClass" Grid.Row="3" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+
+                    <Button x:Name="btnphone7" Text="" ContentLayout="Top,0"  Grid.Row="4" Grid.Column="0"  Image="dashboardkpi.png"  StyleClass="BtnClass1" />
+                    <Button x:Name="btnphone8" Text="" ContentLayout="Top,0"  Grid.Row="4" Grid.Column="1"  Image="dashboardnbc.png"  StyleClass="BtnClass1"/>
+                    <Button x:Name="btnphone9" Text="" ContentLayout="Top,0"  Grid.Row="4" Grid.Column="2"  Image="dashboardsync.png"  StyleClass="BtnClass1"/>
+
+                    <Label Text="KPI/Reports" StyleClass="LabelClass" Grid.Row="5" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+                    <Label Text="Near by customers" StyleClass="LabelClass" Grid.Row="5" Grid.Column="1"  HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+                    <Label Text="Sync" StyleClass="LabelClass" Grid.Row="5" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" />
+          
+                </Grid>
+               
+                <views:ViewNotes x:Name="Notes_view" Padding="0"/>
+                <Label Text=""/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

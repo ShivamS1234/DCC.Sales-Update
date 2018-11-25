@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Pages.OrderFulfillments"
+              xmlns:views="clr-namespace:DCC.SalesApp.Views"
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="toolbarFulfill" Text="Fulfill" Priority="0" Clicked="toolbarFulfill_Clicked" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView>
+            <views:ViewOrderFullFillMentNew x:Name="OrderFullFillMent_view"/>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

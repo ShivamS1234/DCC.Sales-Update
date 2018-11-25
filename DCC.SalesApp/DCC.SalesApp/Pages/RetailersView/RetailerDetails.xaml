@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Pages.RetailersView.RetailerDetails"
+              xmlns:local="clr-namespace:DCC.SalesApp.CustomRenderers"
+             xmlns:viewModel="clr-namespace:DCC.SalesApp.ViewModels.RetailerVM">
+    <ContentPage.BindingContext>
+        <viewModel:RetailerDetailsViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <!--<Grid Margin="10,10,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Code" Grid.Row="0" Grid.Column="0"/>
+            <Label Text="Name" Grid.Row="1" Grid.Column="0"/>
+            <Label Text="Address" Grid.Row="2" Grid.Column="0"/>
+            <Label Text="Area Code" Grid.Row="3" Grid.Column="0"/>
+            <Label Text="Owner" Grid.Row="4" Grid.Column="0"/>
+            <Label Text="Mobile No." Grid.Row="5" Grid.Column="0"/>
+            <Label Text="Email" Grid.Row="6" Grid.Column="0"/>
+            <Label Text="BP Group" Grid.Row="7" Grid.Column="0"/>
+            <Label Text="BP Class" Grid.Row="8" Grid.Column="0" />
+            <Label Text="Balance" Grid.Row="9" Grid.Column="0"/>
+            <Label Text="Credit Limit" Grid.Row="10" Grid.Column="0"/>
+            <Label Text="Joined on" Grid.Row="11" Grid.Column="0"/>
+            
+            <Label Text="{Binding Code}" Grid.Row="0" Grid.Column="1"/>
+            <Label Text="{Binding Name}" Grid.Row="1" Grid.Column="1"/>
+            <Label Text="{Binding Address}" Grid.Row="2" Grid.Column="1"/>
+            <Label Text="{Binding Area.AreaCode}" Grid.Row="3" Grid.Column="1"/>
+            <Label Text="{Binding Owner}" Grid.Row="4" Grid.Column="1"/>
+            <Label Text="{Binding OwnerMobileNo}" Grid.Row="5" Grid.Column="1"/>
+            <Label Text="{Binding OwnerEmail}" Grid.Row="6" Grid.Column="1"/>
+            <Label Text="{Binding BPGroup.Name}" Grid.Row="7" Grid.Column="1"/>
+            <Label Text="{Binding BPClass.Name}" Grid.Row="8" Grid.Column="1" />
+            <Label Text="{Binding Balance}" Grid.Row="9" Grid.Column="1"/>
+            <Label Text="{Binding CrLimit}" Grid.Row="10" Grid.Column="1"/>
+            <Label Text="{Binding CreatedDate,StringFormat = '{0:dd-MMM-yy}'}" Grid.Row="11" Grid.Column="1"/>
+        </Grid>-->
+
+        <ScrollView Padding="10,10,10,10">
+            <StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="Code" FontSize="Small"/>
+                    <local:BorderEntry  Keyboard="Text"  Text="{Binding Code}"/>
+                </StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="Name" FontSize="Small"/>
+                    <local:BorderEntry  Keyboard="Text"  Text="{Binding Name}" />
+                </StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="Address" FontSize="Small"/>
+                    <Editor Keyboard="Text"  HeightRequest="80" Text="{Binding Address}" />
+                </StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="Area" FontSize="Small"/>
+                    <local:BorderEntry  Keyboard="Text" Text="{Binding Area.AreaCode}"/>
+                </StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="Owner Name" FontSize="Small"/>
+                    <local:BorderEntry Keyboard="Text"  Text="{Binding Owner}" />
+                </StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="Owner Mobile No." FontSize="Small"/>
+                    <local:BorderEntry Keyboard="Text"   Text="{Binding OwnerMobileNo}"/>
+                </StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="Owner Email" FontSize="Small"/>
+                    <local:BorderEntry Keyboard="Text"  Text="{Binding OwnerEmail}" />
+                </StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="BP Group" FontSize="Small"/>
+                    <local:BorderEntry Keyboard="Text"   Text="{Binding BPGroup.Name}"/>
+                </StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="BP Class" FontSize="Small"/>
+                    <local:BorderEntry Keyboard="Text"   Text="{Binding BPClass.Name}"/>
+                </StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="Balance" FontSize="Small"/>
+                    <local:BorderEntry  x:Name="txtBalance" Text="{Binding Balance}" Keyboard="Numeric"/>
+                </StackLayout>
+                <StackLayout Spacing="1">
+                    <Label Text="Credit Limit" FontSize="Small"/>
+                    <local:BorderEntry  x:Name="txtCredit" Text="{Binding CrLimit}" Keyboard="Numeric"  />
+                </StackLayout>                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

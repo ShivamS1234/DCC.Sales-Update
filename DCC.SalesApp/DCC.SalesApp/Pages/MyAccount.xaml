@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+             xmlns:views="clr-namespace:DCC.SalesApp.Views"   
+             x:Class="DCC.SalesApp.Pages.MyAccount"
+              xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1">
+    <!--Pages can be added as references or inline-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="btnEdit" Text="Edit Info" Clicked="BtnEdit_Clicked"  />
+    </ContentPage.ToolbarItems>
+    <ContentPage Title="Info">
+        <StackLayout StyleClass="Stack">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <!--<Image x:Name="Att_Image" HeightRequest="100" WidthRequest="100" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"  />-->
+
+                <Frame OutlineColor="#003366" HeightRequest="100" WidthRequest="100" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" StyleClass="BtnClass" >
+                    <Image x:Name="Att_Image"  />
+                </Frame>
+                <Grid Grid.Column="1" Grid.Row="0"  VerticalOptions="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label x:Name="LblUserName" Grid.Row ="0" Grid.Column="0"  StyleClass="LabelClass1"/>
+                    <Label  Text="Attendance"  Grid.Row="1" Grid.Column="0"  StyleClass="LabelClass1"/>
+                    <Label x:Name="LblAttend"  Grid.Row ="1" Grid.Column="1"  StyleClass="LabelClass1"/>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="1" >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="imgLocation"  ContentLayout="Top,0"  Text="Location" Image="location.png" Grid.Column="0" Grid.Row="0" StyleClass="BtnClass" Clicked="location_Clicked"/>
+                </Grid>
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Label Text="Today Working Status: " Grid.Column="0" Grid.Row="0" StyleClass="LabelClass1"/>
+                <Label x:Name="LblWorkingStatus" Text="Status" Grid.Column="1"  Grid.Row="0" StyleClass="LabelClass"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="1"/>
+                <Label Text="Status:" Grid.Column="0" Grid.Row="2" StyleClass="LabelClass1"/>
+                <Label x:Name="LblStatus" Text="Status" Grid.Column="1"  Grid.Row="2" StyleClass="LabelClass"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="3"/>
+                <Label Text="Log Time:" Grid.Column="0"  Grid.Row="4" StyleClass="LabelClass1"/>
+                <Label x:Name="LblLogTime" Grid.Column="1" Grid.Row="4" StyleClass="LabelClass"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="5"/>
+                <Label Text="Email:" Grid.Column="0" Grid.Row="6" StyleClass="LabelClass1"/>
+                <Label x:Name="LblEmail" Grid.Column="1" Grid.Row="6" StyleClass="LabelClass"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="7"/>
+                <Label Text="Address:" Grid.Column="0" Grid.Row="8" StyleClass="LabelClass1"/>
+                <Label x:Name="LblAddress" Grid.Column="1" Grid.Row="8" StyleClass="LabelClass"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="9"/>
+                <Label Text="Designation:" Grid.Column="0" Grid.Row="10" StyleClass="LabelClass1"/>
+                <Label x:Name="LblDesignation" Grid.Column="1" Grid.Row="10" StyleClass="LabelClass"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="11"/>
+                <Label Text="Phone:" Grid.Column="0" Grid.Row="12" StyleClass="LabelClass1"/>
+                <Label x:Name="LblPhone" Grid.Column="1" Grid.Row="12" StyleClass="LabelClass"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="13"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage>
+    <ContentPage Title="Transactions">
+        <ScrollView>
+            <views:ViewTransaction x:Name="Transactions_view"/>
+        </ScrollView>
+    </ContentPage>
+    <!--My changes-->
+    <ContentPage x:Name="EOD" Title="End of day" Appearing="EOD_Appearing">
+        <ScrollView StyleClass="Scroll">
+            <Grid  x:Name="PjP">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="35" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+             
+                <Label x:Name="PjPoutlets" Text="PJP" Grid.Row="0"  StyleClass="LabelHeader" Grid.ColumnSpan="2"/>
+                <BoxView StyleClass="HorizontalRule"  Grid.Row="1"/>
+                
+                <Label Text="Total Outlets :" Grid.Row="2" Grid.Column="0"  StyleClass="LabelClass1" />
+                <Label x:Name="PJPTOutlets"  Grid.Row="2" Grid.Column="1"  StyleClass="LabelClass" />
+
+                <Label Text="Total Visited" Grid.Row="3" Grid.Column="0"   StyleClass="LabelClass1" />
+                <Label x:Name="PJPTVisited" Grid.Row="3" Grid.Column="1" StyleClass="LabelClass" />
+                <Image Source="selectOutet.png" Grid.Row="3" Grid.Column="2" x:Name="ImgPJP"/>
+
+                <Label Text="Total not visited " Grid.Row="4" Grid.Column="0"   StyleClass="LabelClass1" />
+                <Label x:Name="PJPTNvisited"   Grid.Row="4" Grid.Column="1"     StyleClass="LabelClass" />
+
+                <Label x:Name="NonPJPOutlet" Text="Non PJP" Grid.Row="5"  StyleClass="LabelHeader"  Grid.ColumnSpan="2"/>
+                <BoxView StyleClass="HorizontalRule"  Grid.Row="6"/>
+                
+                <Label Text="Total Outlets :" Grid.Row="7" Grid.Column="0"  StyleClass="LabelClass1" />
+                <Label  x:Name="NPJPTOutlets"  Grid.Row="7" Grid.Column="1" StyleClass="LabelClass" />
+
+                <Label Text="Total Visited" Grid.Row="8" Grid.Column="0" StyleClass="LabelClass1" />
+                <Label x:Name="NPJPTVisited" Grid.Row="8" Grid.Column="1" StyleClass="LabelClass" />
+                <Image Source="selectOutet.png" Grid.Row="8" Grid.Column="2"  x:Name="ImgNPJP" />
+                
+                <Label Text="Total not visited" Grid.Row="9" Grid.Column="0" StyleClass="LabelClass1" />
+                <Label x:Name="NPJPTNvisited" Grid.Row="9" Grid.Column="1" StyleClass="LabelClass" />
+
+                <Label x:Name="Outlets" Text="Outlets" Grid.Row="10" StyleClass="LabelHeader" Grid.ColumnSpan="2" />
+                <BoxView StyleClass="HorizontalRule"  Grid.Row="11"/>
+                
+                <Label Text="Total Outlets added:" Grid.Row="12" Grid.Column="0"  StyleClass="LabelClass1" />
+                <Label  x:Name="AddOutlets"  Grid.Row="12" Grid.Column="1"   StyleClass="LabelClass" />
+
+                <Label Text="Total Outlets :" Grid.Row="13" Grid.Column="0"  StyleClass="LabelClass1" />
+                <Label  x:Name="TotalOutlets"  Grid.Row="13" Grid.Column="1"   StyleClass="LabelClass" />
+                
+                <Label Text="Total Visited" Grid.Row="14" Grid.Column="0" StyleClass="LabelClass1" />
+                <Label x:Name="TotalVisited" Grid.Row="14" Grid.Column="1"  StyleClass="LabelClass" />
+
+                <Label Text="Productivity " Grid.Row="15" Grid.Column="0" StyleClass="LabelClass1" />
+                <Label x:Name="Productivity"   Grid.Row="15" Grid.Column="1" StyleClass="LabelClass" />
+
+
+                <Label x:Name="Calls" Text="Outlets" Grid.Row="16" StyleClass="LabelHeader" Grid.ColumnSpan="2" />
+                <BoxView StyleClass="HorizontalRule"  Grid.Row="16"/>
+
+                <Label Text="Total Calls Made :" Grid.Row="17" Grid.Column="0"  StyleClass="LabelClass1" />
+                <local:CustomEntry x:Name="TcallMade" Grid.Row="17"  Grid.Column="1" StyleClass="TextClass" Keyboard="Numeric" />
+
+                <Label Text="Total Productive Calls" Grid.Row="18" Grid.Column="0" StyleClass="LabelClass1" />
+                <local:CustomEntry x:Name="TPC"  Grid.Row="18" Grid.Column="1" StyleClass="TextClass" Keyboard="Numeric" />
+
+
+                <Label Text="Productivity " Grid.Row="19" Grid.Column="0"  StyleClass="LabelClass1" />
+                <Label x:Name="TProductivity" Grid.Row="19" Grid.Column="1" StyleClass="LabelClass" />
+
+                <Button x:Name="Btnsave"  Grid.Column="0" Grid.Row="20" Text="Save" StyleClass="BtnClass" Grid.ColumnSpan="2" Clicked="Btnsave_Clicked"/>
+
+            </Grid>
+        </ScrollView>
+    </ContentPage>
+</TabbedPage>

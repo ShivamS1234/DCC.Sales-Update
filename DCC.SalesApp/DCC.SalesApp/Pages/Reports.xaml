@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"   
+             xmlns:local="clr-namespace:DCC.SalesApp.Pages"
+             x:Class="DCC.SalesApp.Pages.Reports"             
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1" >
+    <dxGrid:GridControl x:Name="IteamDetail" ItemsSource="{Binding Items}"  AutoFilterPanelVisibility="true" IsReadOnly="True" RowHeight="100">
+        <dxGrid:GridControl.Columns>
+            <dxGrid:TemplateColumn FieldName="Name" Caption="Items" IsReadOnly="true" AllowGroup="False" AllowSort="False">
+                <dxGrid:TemplateColumn.DisplayTemplate>
+                    <DataTemplate>
+                        <Grid BindingContext="{Binding Source}">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />                              
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Image  Source="{Binding StreamImage}" Grid.Column="0" Grid.Row="0"   HeightRequest="100" WidthRequest="100" Grid.RowSpan="4"  ></Image>
+                            <Label Text="{Binding Name,StringFormat = 'Name - {0}'}}"  Grid.Column="1" Grid.Row="0" VerticalOptions="Start" StyleClass="LabelClass1"/>
+                            <Label Text="{Binding Code, StringFormat = 'Code: {0}'}" Grid.Column="1" Grid.Row="1" VerticalOptions="Start" StyleClass="LabelClass1"/>
+                            <Label Text="{Binding CreatedDate, StringFormat ='{0:dd-MMM-yy}' }" Grid.Column="1" Grid.Row="2" VerticalOptions="Start" StyleClass="LabelClass1"/>
+                            <Label Text="Quantity" Grid.Column="1" Grid.Row="3" VerticalOptions="Start" StyleClass="LabelClass1" />
+                            <!--<Entry x:Name="entryQuantity" Text=""/>-->
+                        </Grid>
+                    </DataTemplate>
+                </dxGrid:TemplateColumn.DisplayTemplate>
+            </dxGrid:TemplateColumn>
+        </dxGrid:GridControl.Columns>
+    </dxGrid:GridControl>
+
+
+    <!--<dxGrid:GridControl x:Name="IteamDetail" ItemsSource="{Binding Items}"   AutoFilterPanelVisibility="true" RowEditMode="ScreenArea" RowHeight="100">
+
+        <dxGrid:GridControl.Columns>
+            <dxGrid:TemplateColumn FieldName="Name" Caption="Items" Width="200" AllowGroup="False" AllowSort="False" >
+                <dxGrid:TemplateColumn.DisplayTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="10" x:Name="ImageGredd" BindingContext="{Binding Source}" Padding="0,5">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>                                
+                            </Grid.ColumnDefinitions>                           
+                            <Image  Source="{Binding StreamImage}" Grid.Column="0" Grid.Row="0"  HeightRequest="30" WidthRequest="40" ></Image>
+                            <Grid  Padding="0,5,0,5" Grid.Column="1" Grid.Row="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <StackLayout>
+                                    <Label Text="{Binding Name}"  Grid.Column="0" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding Code, StringFormat = 'Code: {0}'}" Grid.Column="0" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="{Binding CreatedDate, StringFormat ='{0:dd-MMM-yy}' }" Grid.Column="0" Grid.Row="2" VerticalOptions="Start" HorizontalOptions="Start"/>
+                                    <Label Text="Quantity"/>
+                                    <Entry x:Name="entryQuantity" Text=""/>
+                                </StackLayout>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </dxGrid:TemplateColumn.DisplayTemplate>
+            </dxGrid:TemplateColumn>
+        </dxGrid:GridControl.Columns>
+    </dxGrid:GridControl>-->
+
+
+
+</ContentPage>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;" xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms" x:Class="DCC.SalesApp.Pages.QuotationNew">
+    <!--BackgroundImage="bg1.png"-->
+    <ContentPage.ToolbarItems>
+        <!--<ToolbarItem x:Name="toolbarSave" Text="Save" Priority="0" Clicked="toolbarSave_Clicked" />-->
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+        <Grid Padding="10,10,10,0" BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="4*" />
+                <RowDefinition Height="6*" />
+                <RowDefinition Height="6*" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0" Grid.Column="0" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label x:Name="lbldate" Text="Order Date" TextColor="Gray" />
+                <local:CustomDatePicker HasBorder="false" TextColor="Black" HeightRequest="35" x:Name="CalStartDate" BackgroundColor="#F4F4F4" Format="dd-MMM-yy" VerticalOptions="FillAndExpand" />
+            </StackLayout>
+            <StackLayout Grid.Row="1" Grid.Column="0" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label x:Name="lblDeldate" Text="Delivery Date" TextColor="Gray" />
+                <local:CustomDatePicker HasBorder="false" TextColor="Black" HeightRequest="35" x:Name="CalDelDate" BackgroundColor="#F4F4F4" Format="dd-MMM-yy" VerticalOptions="FillAndExpand" />
+            </StackLayout>
+            <StackLayout Grid.Row="2" Grid.Column="0" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label x:Name="lblCustomerName" Text="Customer Name" TextColor="Gray" />
+                <StackLayout HeightRequest="35" BackgroundColor="#F4F4F4" HorizontalOptions="FillAndExpand" Padding="5,0,5,0" Orientation="Horizontal">
+                    <Label x:Name="pkrCustomer" Text="Choose Customer" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                    <Image Source="down_arrow.png" HeightRequest="18" WidthRequest="18" HorizontalOptions="End">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Image.GestureRecognizers>
+                    </Image>
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Grid.Row="3" Grid.Column="0" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label x:Name="lblCustomerRefNo" Text="Customer Ref No." TextColor="Gray" />
+                <local:CustomEntry x:Name="txtCustRefNo" Text="3654" HasBorder="false" BackgroundColor="#F4F4F4" FontSize="14" />
+            </StackLayout>
+            <StackLayout Grid.Row="4" Grid.Column="0" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label x:Name="lblCPerson" Text="Contact Person" TextColor="Gray" />
+                <Label x:Name="lblContactPerson" Text=" dfd" StyleClass="LabelQuotationValue" VerticalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout Grid.Row="5" Grid.Column="0" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label x:Name="lblArea" Text="Location" TextColor="Gray" />
+                <Label x:Name="lblAreaText" Text=" Noida" StyleClass="LabelQuotationValue" VerticalTextAlignment="Center" />
+            </StackLayout>
+            <StackLayout Grid.Row="6" Grid.Column="0" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="lblBilling" Text="Billing Address" TextColor="Gray" />
+                    <Picker x:Name="pkrBilling" HeightRequest="20" SelectedIndexChanged="pkrBilling_SelectedIndexChanged" HorizontalOptions="FillAndExpand" />
+                </StackLayout>
+                <local:CustomEditor x:Name="txtBilling" TextColor="Black" HasBorder="false" VerticalOptions="FillAndExpand" BackgroundColor="#F4F4F4" />
+            </StackLayout>
+            <StackLayout Grid.Row="7" Grid.Column="0" Spacing="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal">
+                    <Label x:Name="lblShipping" Text="Shipping Address" TextColor="Gray" />
+                    <Picker x:Name="pkrShipping" HorizontalOptions="FillAndExpand" HeightRequest="20" SelectedIndexChanged="pkrShipping_SelectedIndexChanged" />
+                </StackLayout>
+                <local:CustomEditor HasBorder="false" x:Name="txtShipping" TextColor="Black" VerticalOptions="FillAndExpand" BackgroundColor="#F4F4F4" />
+            </StackLayout>
+            <StackLayout Grid.Row="8" Grid.Column="0" HorizontalOptions="CenterAndExpand" WidthRequest="200" VerticalOptions="FillAndExpand">
+                <Button x:Name="btnProducts" Text="View Products" StyleClass="BtnStyleFotter" Grid.Column="0" Grid.Row="10" Grid.ColumnSpan="2" Clicked="toolbarSave_Clicked" />
+            </StackLayout>
+        </Grid>
+            </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

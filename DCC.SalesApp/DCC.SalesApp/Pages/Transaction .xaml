@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"   
+             xmlns:local="clr-namespace:DCC.SalesApp.Pages"
+                x:Class="DCC.SalesApp.Pages.Transaction"      
+              xmlns:views="clr-namespace:DCC.SalesApp.Views"                 
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1">
+    <ContentPage.Content Title="Transactions" Appearing="ContentPage_Appearing" >
+        <ScrollView>
+            <views:ViewTransaction x:Name="Transactions_view"/>
+        </ScrollView>
+
+        <!--<dxGrid:GridControl x:Name="GrdTransaction" ItemsSource="{Binding Transaction}" AutoFilterPanelVisibility="true" IsReadOnly="True" RowTap="GrdNotes_RowTap" AllowGroup="True" AllowGroupCollapse="True">
+            <dxGrid:GridControl.Columns>
+                <dxGrid:DateColumn FieldName="TransactionType"  IsGrouped="True" GroupInterval="Alphabetical" />
+                <dxGrid:TemplateColumn FieldName="CustName" Caption="Transaction" AllowSort="False" >
+                    <dxGrid:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid BindingContext="{Binding Source}"  Padding="0,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*" />
+
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="150"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding CustName}"  XAlign="Start" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"  VerticalOptions="Start"   />
+                                <Label Text="{Binding TransactionType}"   XAlign="Start" Grid.Column="1" Grid.Row="0" StyleClass="LabelClass1" FontAttributes="None"  VerticalOptions="Center" />
+
+                                <Label Text="{Binding DocTotal}"  XAlign="Start" Grid.Column="0" Grid.Row="1" StyleClass="LabelClass1"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                <Label Text="{Binding DueDate, StringFormat = '{0:dd-MMM-yy}'}"  Grid.Column="1" Grid.Row="1" StyleClass="LabelClass" VerticalOptions="Start" XAlign="End"  />
+
+                                <Label Text="{Binding SalesOrder}"  XAlign="Start" Grid.Column="1" Grid.Row="1" StyleClass="LabelClass1"  VerticalOptions="Start" HorizontalOptions="Start"  />
+
+                            </Grid>
+                        </DataTemplate>
+                    </dxGrid:TemplateColumn.DisplayTemplate>
+                </dxGrid:TemplateColumn>
+            </dxGrid:GridControl.Columns>
+        </dxGrid:GridControl>-->
+
+    </ContentPage.Content>
+
+</ContentPage>

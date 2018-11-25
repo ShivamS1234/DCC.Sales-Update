@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Class="DCC.SalesApp.Pages.InvoiceList">
+    <ContentPage.Content>
+        <StackLayout StyleClass="Stack">
+            <ListView x:Name="listView" 
+                      Header="Binding"
+                      Footer="Binding" 
+                      HorizontalOptions="Center">
+                <ListView.HeaderTemplate>
+
+                    <DataTemplate>
+                        <Grid x:Name="Invoiceheader" Padding="12" BackgroundColor="Blue" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <!--<Label Text="ID" BackgroundColor="Green" Grid.Column="0" Grid.Row="0" />
+                            <Label Text="DueDate" BackgroundColor="Green" Grid.Column="1" Grid.Row="0"/>-->
+                            <Label Text="{Binding CustName}"  XAlign="Start" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"  VerticalOptions="Start"   />
+                            <Label Text="{Binding CustCode}"  XAlign="Start" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"  VerticalOptions="Start"   />
+
+                        </Grid>
+                     
+                    </DataTemplate>
+                </ListView.HeaderTemplate>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding CustName}" Detail="{Binding CustCode}"></TextCell>
+                        <!--<TextCell Text="{Binding CustName}" Detail="{Binding UOM}"></TextCell>
+                        <TextCell Text="{Binding Qty}" Detail="{Binding Price}"></TextCell>-->
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.FooterTemplate>
+
+                    <DataTemplate>
+                        <Grid x:Name="Invoiceheader" Padding="12" BackgroundColor="Yellow" >
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="5*" />
+                                <ColumnDefinition Width="5*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <!--<Label Text="ID" BackgroundColor="Green" Grid.Column="0" Grid.Row="0" />
+                            <Label Text="DueDate" BackgroundColor="Green" Grid.Column="1" Grid.Row="0"/>-->
+                            <Label Text="{Binding ID}"  XAlign="Start" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"  VerticalOptions="Start"   />
+                            <Label Text="{Binding CreatedDate,StringFormat = '{0:MMMM dd, yyyy}'}"   XAlign="Start" Grid.Column="1" Grid.Row="0" StyleClass="LabelClass1" FontAttributes="None"  VerticalOptions="Center" />
+
+                        </Grid>
+
+                    </DataTemplate>
+
+                </ListView.FooterTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

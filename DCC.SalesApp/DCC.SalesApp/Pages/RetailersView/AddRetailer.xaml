@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Pages.RetailersView.AddRetailer"
+             xmlns:local="clr-namespace:DCC.SalesApp.CustomRenderers"
+             xmlns:inthelper="clr-namespace:DCC.SalesApp.Helpers"
+             xmlns:viewModel="clr-namespace:DCC.SalesApp.ViewModels.RetailerVM">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <inthelper:NullableIntConverter x:Key="NullableIntConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView Padding="10,10,10,10">
+             <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="50" />
+                    </Grid.RowDefinitions>
+                    <Label Text="Customer Code " Grid.Column="0" Grid.Row="0" StyleClass="LabelClassNotesKey"/>
+                     <local:BorderEntry Grid.Column="1" StyleClass="EntryClassKey" IsEnabled="false" Grid.Row="0" Keyboard="Text" x:Name="txtCode" Text="{Binding Code}"/>
+                   
+                   <Label Text="Customer Name " Grid.Column="0" Grid.Row="1" StyleClass="LabelClassNotesKey"/>
+                     <local:BorderEntry Grid.Column="1" StyleClass="EntryClassKey" Grid.Row="1" Keyboard="Text" Text="{Binding Name}"/>
+                        
+                   <Label Text="Customer Mobile No. " Grid.Column="0" Grid.Row="2" StyleClass="LabelClassNotesKey"/>
+                     <local:BorderEntry Grid.Column="1" StyleClass="EntryClassKey" Grid.Row="2" Keyboard="Numeric" Text="{Binding OwnerMobileNo}"/>
+                        
+                   <Label Text="Customer Email " Grid.Column="0" Grid.Row="3" StyleClass="LabelClassNotesKey"/>
+                     <local:BorderEntry Grid.Column="1" StyleClass="EntryClassKey" Grid.Row="3" Keyboard="Email" Text="{Binding OwnerEmail}"/>
+                        
+                   <Label Text="Business Group " Grid.Column="0" Grid.Row="4" StyleClass="LabelClassNotesKey"/>
+                     <local:BorderPicker Grid.Column="1" Grid.Row="4" ItemsSource="{Binding bpGroup}" HasArrowBorder="true" ItemDisplayBinding="{Binding Code}" Title="--Select BP Group--" StyleClass="PickerStyleCustomer" SelectedItem="{Binding selectedBPGroup}"/>
+                        
+                   <Label Text="Business Class " Grid.Column="0" Grid.Row="5" StyleClass="LabelClassNotesKey"/>
+                     <local:BorderPicker Grid.Column="1" Grid.Row="5" HasArrowBorder="true" StyleClass="PickerStyleCustomer" ItemsSource="{Binding bpClass}" ItemDisplayBinding="{Binding Code}" Title="--Select BP Class--" SelectedItem="{Binding selectedBPClass}"/>
+                       
+                   <Label Text="Area " Grid.Column="0" Grid.Row="6" StyleClass="LabelClassNotesKey"/>
+                     <local:BorderPicker Grid.Column="1" Grid.Row="6" HasArrowBorder="true" StyleClass="PickerStyleCustomer" ItemsSource="{Binding areas}" ItemDisplayBinding="{Binding AreaCode}" Title="--Select Area--" SelectedItem="{Binding selectedArea}"/>
+                        
+                   <Label Text="Billing Address " VerticalOptions="StartAndExpand" Grid.Column="0" Grid.Row="7" StyleClass="LabelClassNotesKey"/>
+                    <Editor x:Name="textDetails" Grid.Column="1" Grid.Row="7" StyleClass="EditorClass"/>
+                
+                    <StackLayout Grid.Column="0" Grid.Row="9" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" WidthRequest="200" >
+                     <Button  Text="NEXT" VerticalOptions="CenterAndExpand" StyleClass="BtnStyleFotter" Command="{Binding AddNewCommand}" />
+                    </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

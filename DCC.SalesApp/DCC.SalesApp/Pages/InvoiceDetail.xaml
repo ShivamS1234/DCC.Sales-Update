@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms" 
+             xmlns:local="clr-namespace:DCC.SalesApp"
+             x:Class="DCC.SalesApp.Pages.InvoiceDetail">
+    <ContentPage.Content>
+        <StackLayout StyleClass="Stack" >
+            <ListView x:Name="OrderFullfillInfor" HasUnevenRows="True" >
+                <ListView.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label Text="Invoice No." Grid.Row="0" Grid.Column="0" StyleClass="LabelClass1" VerticalOptions="Start"/>
+                        <Label x:Name="InvoiceNo" Grid.Row="0" Grid.Column="1" StyleClass="LabelClass" VerticalOptions="Start"/>
+                        <Label Text="Invoice Date" Grid.Row="0" Grid.Column="2" StyleClass="LabelClass1" VerticalOptions="Start"/>
+                        <Label x:Name="InvoiceDate" Grid.Row="0" Grid.Column="3" StyleClass="LabelClass" VerticalOptions="Start"/>
+
+                        <Label Text="Invoice Amnt." Grid.Row="1" Grid.Column="0" StyleClass="LabelClass1" VerticalOptions="Start"/>
+                        <Label x:Name="InvoiceAmnt" Grid.Row="1" Grid.Column="1" StyleClass="LabelClass" VerticalOptions="Start"/>
+                        <Label Text="Due Date" Grid.Row="1" Grid.Column="2" StyleClass="LabelClass1" VerticalOptions="Start"/>
+                        <Label x:Name="DueDate" Grid.Row="1" Grid.Column="3" StyleClass="LabelClass" VerticalOptions="Start"/>
+
+                        <Label Text="Balance Due" Grid.Row="2" Grid.Column="0" StyleClass="LabelClass1" VerticalOptions="Start"/>
+                        <Label x:Name="BalanceDue" Grid.Row="2" Grid.Column="1" StyleClass="LabelClass" VerticalOptions="Start"/>
+
+                        <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="4" Grid.Row="3" VerticalOptions="Start"/>
+                        <Label Text="Item Details" Grid.Row="4" Grid.Column="0" StyleClass="LabelClass" Font="14,Bold" Grid.ColumnSpan="2" VerticalOptions="Start"/>
+
+                    </Grid>
+                </ListView.Header>
+                <ListView.Footer>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="1"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition  Height="*"/>
+                            <RowDefinition  Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*" />
+                            <ColumnDefinition Width="2*" />
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="4" Grid.Row="0"/>
+
+                        <Label Text="Sub Total" Grid.Row="1" Grid.Column="0" StyleClass="LabelClass1" HorizontalOptions="EndAndExpand"/>
+                        <Label x:Name="SubTotal" Grid.Row="1" Grid.Column="1" StyleClass="LabelClass" HorizontalOptions="EndAndExpand"/>
+
+                        <Label Text="Tax" Grid.Row="2" Grid.Column="0" StyleClass="LabelClass1" HorizontalOptions="EndAndExpand"/>
+                        <Label x:Name="Tax" Grid.Row="2" Grid.Column="1" StyleClass="LabelClass" HorizontalOptions="EndAndExpand"/>
+
+                        <Label Text="Total " Grid.Row="3" Grid.Column="0" StyleClass="LabelClass1" HorizontalOptions="EndAndExpand"/>
+                        <Label x:Name="Total" Grid.Row="3" Grid.Column="1" StyleClass="LabelClass" HorizontalOptions="EndAndExpand"/>
+                    </Grid>
+                </ListView.Footer>
+                <ListView.ItemTemplate >
+
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions> 
+                                    <RowDefinition  Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Image Source="{Binding stream}" HeightRequest="100" WidthRequest="100 " Grid.Column="0"  VerticalOptions="StartAndExpand"  HorizontalOptions="StartAndExpand"/>
+                                <!--<ImageCell ImageSource="{Binding ItemImage}" Grid.Row="0" Grid.Column="0"  />-->
+                                <Label Text="{Binding ItemName}" x:Name="lblItemName" Grid.Column="6"  StyleClass="LabelClass"  />
+                                <Label Text="{Binding CustCode}" x:Name="lblCustCode" Grid.Column="1"   StyleClass="LabelClass"   />
+                                <Label Text="{Binding OpenQty}" x:Name="lblOpenQty" Grid.Column="2"  StyleClass="LabelClass" />
+                                <Label Text="{Binding CustRefNo}" x:Name="lblCustRefNo" Grid.Column="3"   StyleClass="LabelClass"  />
+                                <Label Text="{Binding Quantity}" x:Name="lblQuantity" Grid.Column="4"  StyleClass="LabelClass"  />
+                                <Label Text="{Binding UnitPrice}" x:Name="lblUnitPrice" Grid.Column="5"  StyleClass="LabelClass"  />
+
+
+                                <!--<BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="2"/>-->
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+
+    </ContentPage.Content>
+
+
+</ContentPage>

@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DCC.SalesApp.Views.ViewCustomer" 
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1">
+    <ContentView.Content>
+        <!--<ScrollView Style="Scroll">-->
+            <!--<ListView x:Name="lstRetailers" HasUnevenRows="True">
+                    <ListView.ItemTemplate >
+                        <DataTemplate>
+                            <ViewCell>-->
+            <dxGrid:GridControl x:Name="lstRetailers"  AutoFilterPanelVisibility="true"  AllowGroupCollapse="True" RowHeight="75"  IsReadOnly="True">
+                <!--RowHeight="70" >-->
+                <dxGrid:GridControl.Columns>
+                    <!--<dxGrid:TextColumn FieldName="CustNameCode" IsGrouped="True" Caption="Customer" GroupInterval="DisplayText" />
+                <dxGrid:SwitchColumn x:Name="switchFultill" FieldName="CheckDelivered" Width="50" UnboundType="Boolean" UnboundExpression="false" />-->
+                    <!--<dxGrid:TextColumn FieldName="NameLocation" Caption="Location"/>
+                <dxGrid:NumberColumn FieldName="OrderId" Caption="Order No."/>
+                <dxGrid:DateColumn FieldName="PostDate" Caption="Order Date"/>
+                <dxGrid:NumberColumn FieldName="RoundingAmnt" Caption="Order Amt"/>-->
+
+                    <dxGrid:TemplateColumn FieldName="Name" Caption="Our Customers" AllowSort="True" ColumnFilterMode="DisplayText" >
+                        <dxGrid:TemplateColumn.DisplayTemplate>
+                            <DataTemplate>
+                              
+                                <Grid BindingContext="{Binding Source}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="3*" />
+                                        <ColumnDefinition Width="4*" />
+                                    </Grid.ColumnDefinitions>
+                                    <BoxView Color="#f2f2f2" Grid.Column="0" Grid.ColumnSpan="3"/>
+
+                                    <Label Text="{Binding Name}" x:Name="lblName" XAlign="Start" StyleClass="LabelClass1" Grid.Row="0" Grid.Column="0"  Font="Bold" VerticalOptions="StartAndExpand"   />
+                                    <Label Text="{Binding Code}" x:Name="lblID" XAlign="Start"  StyleClass="LabelClass1" Grid.Row="0" Grid.Column="1" Font="Bold"  VerticalOptions="StartAndExpand"  />
+
+                                    <Label Text="{Binding OverDueDays, StringFormat = 'Over Due Days - {0}'}"   XAlign="Start" Grid.Column="0" Grid.Row="1" StyleClass="LabelClass1"/>
+                                    <Label Text="{Binding Balance,StringFormat = 'Balance - {0:#,##0.0;(#,##0.0);Zero}'}}"   Grid.Column="1" Grid.Row="1" StyleClass="LabelClass1"/>
+                                    <Label Text="{Binding CrLimit,StringFormat = 'Limit - {0:#,##0.0;(#,##0.0);Zero}'}}"   Grid.Column="2" Grid.Row="1" StyleClass="LabelClass1"/>
+
+                                    <Label Text="{Binding CreatedDate, StringFormat = '{0:dd-MMM-yy}'}"  Grid.Column="0" Grid.Row="2" StyleClass="LabelClass1" VerticalOptions="Start" Grid.ColumnSpan="3"  />
+                                </Grid>
+
+                            </DataTemplate>
+                        </dxGrid:TemplateColumn.DisplayTemplate>
+                    </dxGrid:TemplateColumn>
+
+                </dxGrid:GridControl.Columns>
+            </dxGrid:GridControl>
+        <!--</ScrollView>-->
+    </ContentView.Content>
+</ContentView>

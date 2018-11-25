@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:views="clr-namespace:DCC.SalesApp.Views"
+             x:Class="DCC.SalesApp.Pages.CustomerDetails"
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1">
+    <!--Pages can be added as references or inline-->
+    <ContentPage Title="Info">
+        <StackLayout StyleClass="Stack" VerticalOptions="Start">
+            <Label x:Name="lblOwnerName"  HorizontalTextAlignment="Start" FontAttributes="Bold" StyleClass="LabelClass"/>
+            <Label x:Name="LblOwnerAddress"  HorizontalTextAlignment="Start" StyleClass="LabelClass"/>
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="90"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="btnphone"  ContentLayout="Top,0"  Clicked="btnphone_Clicked" Image="phone.png" Grid.Column="0" Grid.Row="0" StyleClass="BtnClass" WidthRequest="120"/>
+                <Button x:Name="btnUpdateLocation"  ContentLayout="Top,0"  Text="update location"  Clicked="btnUpdateLocation_Clicked"  Image="updatelocation.png" Grid.Column="1" Grid.Row="0" StyleClass="BtnClass" WidthRequest="120"/>
+                <Button x:Name="btnGetDirection"  ContentLayout="Top,0"  Text="Get Direction" Clicked="btnGetDirection_Clicked" Image="location.png" Grid.Column="2" Grid.Row="0" StyleClass="BtnClass" WidthRequest="120"/>
+            </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="1" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label Text="GENERAL INFO .." Grid.Column="0" Grid.Row="0" StyleClass="LabelHeader"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="1"/>
+                <Label Text="Selected DISTRIBUTER" Grid.Column="0" Grid.Row="2" StyleClass="LabelClass"/>
+                <Label x:Name="lbldistributor" Text="Selected DISTRIBUTER" Grid.Row ="2" Grid.Column="1" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="3"/>
+                <Label  Text="Owner" Grid.Column="0" Grid.Row="4" StyleClass="LabelClass"/>
+                <Label x:Name="LblOwner" Text="Owner" Grid.Row ="4" Grid.Column="1" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="5"/>
+                <Label  Text="Owner Mobile No" Grid.Column="0" Grid.Row="6" StyleClass="LabelClass"/>
+                <Label x:Name="lblOnr_mob" Grid.Row ="6" Grid.Column="1" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="7"/>
+                <Label Text="Selected BEAT" Grid.Column="0" Grid.Row="8" StyleClass="LabelClass"/>
+                <Label x:Name="lblseleted_beat"  Grid.Row ="8" Grid.Column="1" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="9"/>
+                <Label Text="AREA" Grid.Column="0" Grid.Row="10" StyleClass="LabelClass"/>
+                <Label x:Name="Lblarea" Grid.Column="1" Grid.Row="10" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="11"/>
+                <Label Text="Outlet Types" Grid.Column="0" Grid.Row="12" StyleClass="LabelClass"/>
+                <Label x:Name="Lbloutlet" Grid.Column="1" Grid.Row="12" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="13"/>
+                <Label Text="Outlet Catagory" Grid.Column="0" Grid.Row="14" StyleClass="LabelClass"/>
+                <Label x:Name="LblCatagory" Grid.Column="1" Grid.Row="14" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="15"/>
+                <Label Text="Balance" Grid.Column="0" Grid.Row="16" StyleClass="LabelClass"/>
+                <Label x:Name="LblBalance" Grid.Column="1" Grid.Row="16" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="17"/>
+                <Label Text="Credit Limit" Grid.Column="0" Grid.Row="18" StyleClass="LabelClass"/>
+                <Label x:Name="LblCradit_limit" Grid.Column="1" Grid.Row="18" StyleClass="LabelClass1"/>
+                <BoxView StyleClass="HorizontalRule" Grid.ColumnSpan="2" Grid.Row="19"/>
+            </Grid>
+        </StackLayout>
+
+    </ContentPage>
+
+    <ContentPage Title="Transactions">
+        <dxGrid:GridControl x:Name="GrdTransaction" ItemsSource="{Binding Invoices}" AutoFilterPanelVisibility="true" IsReadOnly="True"  AllowGroup="True" AllowGroupCollapse="True" RowHeight="70">
+                <dxGrid:GridControl.Columns>
+                    <!--<dxGrid:DateColumn FieldName="ID"  IsGrouped="True" GroupInterval="Alphabetical" />-->
+                    <dxGrid:TemplateColumn FieldName="CustName" Caption="Transaction" AllowSort="False" >
+                        <dxGrid:TemplateColumn.DisplayTemplate>
+                            <DataTemplate>
+                                <Grid BindingContext="{Binding Source}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="2*"/>
+                                        <ColumnDefinition Width="8*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding ID,StringFormat='No. {0}'}"  XAlign="Start" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"  VerticalOptions="Start"   />
+                                    <Label Text="{Binding PostDate,StringFormat = 'Inv Dt. {0:dd-MMM-yy}'}"   XAlign="Start" Grid.Column="1" Grid.Row="0" StyleClass="LabelClass1"    />
+
+                                    <Label Text="{Binding DocTotal,StringFormat='{0:#,##0.0;(#,##0.0);Zero}'}"  XAlign="Start" Grid.Column="0" Grid.Row="1" StyleClass="LabelClass"/>
+                                    <Label Text="{Binding DueDate, StringFormat = 'Due Dt. {0:dd-MMM-yy}'}"  Grid.Column="1" Grid.Row="1" StyleClass="LabelClass"  XAlign="End"  />
+
+                                    <Label Text="{Binding DocTotalSC,StringFormat='{0:#,##0.0;(#,##0.0);Zero}'}"  XAlign="Start" Grid.Column="1" Grid.Row="1" StyleClass="LabelClass" />
+
+                                    <Label Text="{Binding DocTotal,StringFormat='Bal. {0:#,##0.0;(#,##0.0);Zero}'}"   XAlign="Start" Grid.Column="0" Grid.Row="2" StyleClass="LabelClass1"/>
+                                    <Label Text="{Binding ID,StringFormat = 'Over Due Days {0:N}'}"   XAlign="Start" Grid.Column="1" Grid.Row="2" StyleClass="LabelClass1"  />
+
+                                </Grid>
+                            </DataTemplate>
+                        </dxGrid:TemplateColumn.DisplayTemplate>
+                    </dxGrid:TemplateColumn>
+                </dxGrid:GridControl.Columns>
+            </dxGrid:GridControl>
+
+    </ContentPage>
+    <ContentPage Title="Order Fulfillment">
+        <views:ViewOrderFullFillMentNew x:Name="OrderFullFillMent_view"/>
+    </ContentPage>
+    <ContentPage Title="Schemes" >
+        <dxGrid:GridControl x:Name="_grdSchemes" ItemsSource="{Binding Schemes}"  AutoFilterPanelVisibility="true" IsReadOnly="True" RowHeight="100">
+            <dxGrid:GridControl.Columns>
+               
+                <dxGrid:TemplateColumn FieldName="Name" Caption="Description" IsReadOnly="true" AllowGroup="False" AllowSort="False">
+                    <dxGrid:TemplateColumn.DisplayTemplate>
+                        <DataTemplate>
+                            <Grid BindingContext="{Binding Source}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                  
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                
+                            
+
+                                <Image Source="{Binding stream}"   HeightRequest="100" WidthRequest="100" Grid.Column="0" Grid.Row="0" Grid.RowSpan="4"  />
+                                <Label Text="{Binding Name, StringFormat = 'Name - {0}'}}"   Grid.Column="1" Grid.Row="0" VerticalOptions="Start"  StyleClass="LabelClass1"/>
+                                <Label Text="{Binding Code, StringFormat = 'Code - {0}'}}"  Grid.Column="1" Grid.Row="1" VerticalOptions="Start"  StyleClass="LabelClass1"/>
+                                <Label Text="{Binding Quantity, StringFormat='Quantity - {0}'}}"  Grid.Column="1" Grid.Row="2" VerticalOptions="Start" StyleClass="LabelClass1" />
+                                <Label Text="{Binding FreeQty,StringFormat = 'FreeQty - {0}'}}"  Grid.Column="2" Grid.Row="0" VerticalOptions="Start" StyleClass="LabelClass1"/>
+                                <Label Text="{Binding Discount,StringFormat = 'Discount - {0}'}}"  Grid.Column="2" Grid.Row="1" VerticalOptions="Start" StyleClass="LabelClass1"/>
+                                <Label Text="{Binding ApplicableTo,StringFormat = 'Applicable - {0}'}}"  Grid.Column="2" Grid.Row="2" VerticalOptions="Start" StyleClass="LabelClass1"/>
+
+                            </Grid>
+                        </DataTemplate>
+                    </dxGrid:TemplateColumn.DisplayTemplate>
+                </dxGrid:TemplateColumn>
+            </dxGrid:GridControl.Columns>
+        </dxGrid:GridControl>
+    </ContentPage>
+    <ContentPage Title="Notes" >
+        <views:ViewNotes x:Name="Notes_view"/>
+    </ContentPage>
+</TabbedPage>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="DCC.SalesApp.Pages.UserSafetyPageNew"
+    xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+             xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls">
+    <ContentPage.Content>
+        <Grid BackgroundColor="#00A2FF" RowSpacing="10" Padding="40,0,40,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*" />
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="6*" />
+                <RowDefinition Height="4*" />
+            </Grid.RowDefinitions>
+            <StackLayout Grid.Row="0"  Grid.Column="0" Padding="0,0,5,0" VerticalOptions="StartAndExpand">
+                <Image Source="logoNew.png" HorizontalOptions="CenterAndExpand" Aspect="AspectFit" WidthRequest="190" HeightRequest="150" VerticalOptions="CenterAndExpand" />
+                <Label Text="Employee Safety Assurance Form" TextColor="White" FontSize="18" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" />
+            </StackLayout>
+            <StackLayout Grid.Row="1" Grid.Column="0"  Margin="0,7,0,0" VerticalOptions="FillAndExpand">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                     <ctrls:RadioGroup  x:Name="rd_travelby"   
+                                        DisplayPath="Name"
+                      ItemsSource="{Binding RadioGroupSource}" 
+                      Orientation="Vertical"
+                        SelectedItem="{Binding SelectedTravel}"
+                              Grid.Row="0" Grid.Column="0"
+                      HorizontalOptions="Start"
+                              VerticalOptions="Start"
+                      
+                      OnImg="radioUncheckIcon.png"
+                      OffImg="radioCheckIcon.png"/>
+                    <StackLayout  HorizontalOptions="Start"
+                              VerticalOptions="FillAndExpand"  Grid.Row="0" Grid.Column="1">
+                        <Label Text="Public Transport" Margin="0,2,0,0" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" TextColor="White" FontSize="14" HorizontalOptions="Start" VerticalOptions="StartAndExpand" />
+                        <Label Text="4 Wheeler(Self Driven)" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" TextColor="White" FontSize="14" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                        <Label Text="2 Wheeler(Self Driven)" Margin="0,0,0,2" HorizontalTextAlignment="Start" VerticalTextAlignment="Start" TextColor="White" FontSize="14" HorizontalOptions="Start" VerticalOptions="EndAndExpand" />
+                    </StackLayout>
+                </Grid>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" Grid.Row="2"  Grid.Column="0">
+            <Label  Text="#" x:Name="lbl_ans" IsVisible="false" TextColor="White" FontSize="14"   StyleClass="LabelHeader"   HorizontalOptions="Start" VerticalOptions="Start"   />
+                <StackLayout Orientation="Horizontal">
+                    <ctrls:CheckBox  x:Name="rd_safety_eq"  HorizontalOptions="Start" Checked="{Binding SafetyCheck}" OffImg="UncheckIcon.png" OnImg="CheckIcon.png"/>
+                     <Label x:Name="lbl_safety_eq" VerticalTextAlignment="Center" TextColor="White" FontSize="12" Text="Yes" />
+                </StackLayout>
+            </StackLayout>
+
+            <StackLayout Grid.Row="3"   Grid.Column="0" Spacing="10" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Label Text="Pledge" TextColor="White" FontSize="12" FontAttributes="Bold" HorizontalOptions="StartAndExpand" VerticalOptions="Start" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="15"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <ctrls:CheckBox x:Name="chkPledge" Checked="{Binding PledgeCheck}"  Grid.Row="0" Grid.Column="0" VerticalOptions="Start" OffImg="UncheckIcon.png" OnImg="CheckIcon.png"/>
+                   
+                    <Label TextColor="White" Margin="10,0,0,0" FontSize="12" Grid.Row="0" Grid.Column="1" Text="I hereby lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy test ever since the 1500s. when an unknown printer took a galley of type and scrambled it to make a type specimen book." HorizontalOptions="FillAndExpand">
+                        <Label.GestureRecognizers>
+                             <TapGestureRecognizer Command="{Binding TapLabel}" NumberOfTapsRequired="1" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Grid>
+                <StackLayout Orientation="Horizontal" Spacing="10">
+                    <Label x:Name="lbl_SRead" Text="Odometer Reading" VerticalTextAlignment="Center" TextColor="White" FontSize="14" HorizontalOptions="Start" />
+                   <local:CustomEntry  StyleClass="TextClassLogin" x:Name="txtSRead" Text="{Binding SRead}" TextColor="White" FontSize="14" FontAttributes="Bold" HorizontalOptions="FillAndExpand" Keyboard="Numeric" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout Grid.Row="4" Grid.Column="0" Spacing="10" Padding="0"   VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                <Button Text="SUBMIT" FontSize="17" Command="{Binding SubmitCommand}" HeightRequest="45"  StyleClass="BtnClassLogin" />
+                <Button Text="NOT WORKING"  Command="{Binding NotWorking}" FontSize="17" HeightRequest="45" StyleClass="BtnClassLogin" BackgroundColor="Transparent" BorderColor="White" BorderWidth="2" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

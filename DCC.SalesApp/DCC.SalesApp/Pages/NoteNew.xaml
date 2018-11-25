@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             xmlns:local="clr-namespace:DCC.SalesApp.CustomRenderers"
+             x:Class="DCC.SalesApp.Pages.NoteNew"
+             xmlns:Dlocal="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+    >
+    <ContentPage.Content>
+        <StackLayout StyleClass="Stack" BackgroundColor="White">
+            <ScrollView BackgroundColor="White">
+                <Grid >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="7*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="60" />
+                        <RowDefinition Height="35" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="100" />
+                        <RowDefinition Height="*" />
+       
+                        <RowDefinition Height="*" />
+      
+                    </Grid.RowDefinitions>
+
+                    <Label Text="Select Customer " Grid.Column="0" Grid.Row="0" StyleClass="LabelClassNotesKey"/>
+                    <!--<Picker StyleClass="PickerCustomer" x:Name="PkCustomer" Grid.Column="1"  Grid.Row="0" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding ID}" Title="Select Customer" SelectedIndexChanged="PkCustomer_SelectedIndexChanged"/>-->
+               
+                   <!-- <Label x:Name="pkrCustomer" Text="Select Customer" TextColor="Black" VerticalTextAlignment="Center" HorizontalOptions="FillAndExpand">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+                        </Label.GestureRecognizers>
+                    </Label>-->
+                    <local:BorderPicker StyleClass="PickerStyleCustomer" HasArrowBorder="true" x:Name="PkCustomer"  Grid.Column="1"  Grid.Row="0" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding ID}" Title="Select Customer" SelectedIndexChanged="PkCustomer_SelectedIndexChanged"/>
+               
+                    <Label Text="Subject Name " Grid.Column="0" Grid.Row="1" StyleClass="LabelClassNotesKey"/>
+                    <local:BorderPicker StyleClass="PickerStyleCustomer" HasArrowBorder="true" x:Name="PkSubjectype" Grid.Column="1"  Grid.Row="1" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding ID}" Title="Select Subject" SelectedIndexChanged="PkSubjectype_SelectedIndexChanged"/>
+
+                    <Label Text="Activity Action " Grid.Column="0" Grid.Row="2" StyleClass="LabelClassNotesKey"/>
+                   <local:BorderPicker StyleClass="PickerStyleCustomer" HasArrowBorder="true" x:Name="PkActiName" Grid.Column="1"  Grid.Row="2" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding ID}" Title="Select Action" SelectedIndexChanged="PkActiName_SelectedIndexChanged"/>
+
+                    <Label Text="Activity Type " Grid.Column="0"  Grid.Row="3" StyleClass="LabelClassNotesKey"/>
+                    <local:BorderPicker StyleClass="PickerStyleCustomer" HasArrowBorder="true" x:Name="PkActTypeID" Grid.Column="1"  Grid.Row="3" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding ID}" Title="Select Activity" SelectedIndexChanged="PkActTypeID_SelectedIndexChanged"/>
+
+
+                    <Label Text="Details " Grid.Column="0" Grid.Row="4" StyleClass="LabelClassNotesKey"/>
+                    <Editor x:Name="textDetails" Grid.Column="1" Grid.Row="4" StyleClass="EditorClass"/>
+
+                    <Label Text="Start Date " Grid.Column="0" Grid.Row="5" StyleClass="LabelClassNotesKey"/>
+                    <Dlocal:CustomDatePicker x:Name="CalStartDate" Grid.Column="1" HasArrow="true" Grid.Row="5" Format="yyyy-MM-dd" MinimumDate="{Binding Activities.StartDate}" StyleClass="DatePickerStyle"/>
+
+                    <Label Text="StartTime:" Grid.Column="0" Grid.Row="6" StyleClass="LabelClassNotesKey"/>
+                   <Dlocal:CustomTimePicker x:Name="txtStartTime" Grid.Column="1" Grid.Row="6" StyleClass="TimePickerStyle"/>
+
+                    <Label Text="End Date " Grid.Column="0" Grid.Row="7" StyleClass="LabelClassNotesKey"/>
+                    <Dlocal:CustomDatePicker x:Name="CalEndtDate" HasArrow="true" Grid.Column="1" Grid.Row="7" Format="yyyy-MM-dd" MinimumDate="{Binding Activities.EndDate}" StyleClass="DatePickerStyle"/>
+
+                    <Label Text="EndTime:" Grid.Column="0" Grid.Row="8" StyleClass="LabelClassNotesKey"/>
+                    <Dlocal:CustomTimePicker x:Name="txtEndTime" Grid.Column="1" Grid.Row="8" StyleClass="TimePickerStyle"/>
+
+                    <Label Text="Priority:" Grid.Column="0" Grid.Row="9" StyleClass="LabelClassNotesKey"/>
+                    <local:BorderPicker StyleClass="PickerStyleCustomer" HasArrowBorder="true" x:Name="PkPriority" Grid.Column="1"  Grid.Row="9" ItemDisplayBinding="{Binding Priorty}" SelectedItem="{Binding ID}" Title="Select Priority" SelectedIndexChanged="PkPriority_SelectedIndexChanged"/>
+
+                    <Label Text="Location:" Grid.Column="0" Grid.Row="10" StyleClass="LabelClassNotesKey"/>
+                    <local:BorderPicker StyleClass="PickerStyleCustomer" HasArrowBorder="true" x:Name="PkLocation" Grid.Column="1"  Grid.Row="10" ItemDisplayBinding="{Binding AreaCode}" SelectedItem="{Binding ID}" Title="Select Location" SelectedIndexChanged="PickerLocation_SelectedIndexChanged"/>
+
+                    <Label Text="Notes:" Grid.Column="0" Grid.Row="11" StyleClass="LabelClassNotesKey"/>
+                    <Editor x:Name="txtNotes" Grid.Column="1" Grid.Row="11" StyleClass="TextClass"/>               
+
+                    <Label Text="Status:" Grid.Column="0" Grid.Row="12" StyleClass="LabelClassNotesKey"/>
+                    <local:BorderPicker StyleClass="PickerStyleCustomer" HasArrowBorder="true" x:Name="PkStatus" Grid.Column="1"  Grid.Row="12" ItemDisplayBinding="{Binding Status}" SelectedItem="{Binding ID}" Title="Select Status" SelectedIndexChanged="PickerPkStatus_SelectedIndexChanged"/>
+                    
+                    <Label Grid.Column="0" Grid.Row="13" Text="Picture" StyleClass="LabelClassNotesKey"/>
+                    <StackLayout Grid.Column="1" Grid.Row="13" Orientation="Horizontal" HorizontalOptions="Fill">
+                        <Button x:Name="GalaryPhoto" Text="Pick Photo" StyleClass="BtnNoteStyle" />
+                        <Button x:Name="CameraButton" Text="Take Photo" HorizontalOptions="EndAndExpand" StyleClass="BtnNoteStyle" />
+                    </StackLayout>
+                    
+                    <Image x:Name="Att_Image" HorizontalOptions="Start"  Grid.Column="1" Grid.Row="14" HeightRequest="100" WidthRequest="100"  />
+                      <StackLayout Grid.Column="1" Grid.Row="15" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand" WidthRequest="200" VerticalOptions="FillAndExpand">
+                         <Button x:Name="BtnUpdateEdit"  Text="Add Notes" StyleClass="BtnStyleFotter" Clicked="BtnUpdateEdit_Clicked" />
+                      </StackLayout>
+                </Grid>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

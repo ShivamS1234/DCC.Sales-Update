@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"             
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1"
+             x:Class="DCC.SalesApp.Pages.WarehouseStock">
+    <ContentPage.Content>
+        <ScrollView>
+            <dxGrid:GridControl x:Name="GrdWareHouse" ItemsSource="{Binding StockWarehouse}" AutoFilterPanelVisibility="true" 
+                                NewItemRowVisibility="True" SortMode="Multiple" IsReadOnly="True" RowTap="GrdWareHouse_RowTap" RowHeight="60">
+                <dxGrid:GridControl.Columns>
+                    <dxGrid:TemplateColumn FieldName="Name" Caption="Warehouses" AllowAutoFilter="True" SortMode="DisplayText"  AllowGroup="False" AllowSort="False">
+                    
+                            <dxGrid:TemplateColumn.DisplayTemplate>
+                            <DataTemplate>
+                                <Grid x:Name="ImageGredd" BindingContext="{Binding Source}"  Padding="0,5" Grid.Column="0" Grid.Row="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding Name}"  XAlign="Start" Grid.Column="0" Grid.Row="0" StyleClass="LabelClass"  VerticalOptions="Start" HorizontalOptions="Start"  />
+                                    <Label Text="{Binding Code, StringFormat = '({0})'}"  XAlign="Start" Grid.Column="1" Grid.Row="0" StyleClass="LabelClass1"  VerticalOptions="Start" HorizontalOptions="Start" Grid.ColumnSpan="2"/>
+                                    <Label Text="{Binding LocationCity}"  Grid.Column="0" StyleClass="LabelClass1" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Start" Grid.ColumnSpan="3"/>
+                                  
+                                </Grid>
+                            </DataTemplate>
+                        </dxGrid:TemplateColumn.DisplayTemplate>
+                    </dxGrid:TemplateColumn>
+                       
+                </dxGrid:GridControl.Columns>
+            </dxGrid:GridControl>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

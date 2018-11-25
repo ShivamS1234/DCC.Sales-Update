@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:DCC.SalesApp.Pages" 
+             xmlns:views="clr-namespace:DCC.SalesApp.Views" 
+             x:Class="DCC.SalesApp.Pages.Notes" 
+             xmlns:controls="clr-namespace:DCC.SalesApp.CustomRenderers" 
+             xmlns:dxGrid="clr-namespace:DevExpress.Mobile.DataGrid;assembly=DevExpress.Mobile.Grid.v17.1">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:BoolToColorConverter x:Key="BoolToColorFrame" TrueColor="#027ec6" FalseColor="#F4F4F4" />
+            <local:BoolToColorConverter x:Key="BoolToColorBlack" TrueColor="#FFFFFF" FalseColor="#000000" />
+            <local:BoolToColorConverter x:Key="BoolToColorGray" TrueColor="#FFFFFF" FalseColor="#808080" />
+            <local:NumberToStringYesNoConverter x:Key="NumberToString" />
+            <local:NumberToStringPriorityConverter x:Key="NumberToStringPriority" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <StackLayout Padding="15,15,15,0" BackgroundColor="White">
+            <controls:InfiniteListView x:Name="lstNotes" ItemsSource="{Binding NoteLists}" SeparatorVisibility="None" HasUnevenRows="true" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <controls:InfiniteListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <Frame Padding="0" HasShadow="false" Margin="0,0,0,6">
+                                    <Grid RowSpacing="0">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="9*" />
+                                            <ColumnDefinition Width="5*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Grid Grid.Row="0" Grid.Column="0" RowSpacing="0" Grid.ColumnSpan="2" Padding="5,5,5,0" BackgroundColor="{Binding IsNotesInfo,Converter={StaticResource BoolToColorFrame}}">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="3*" />
+                                                <RowDefinition Height="2*" />
+                                            </Grid.RowDefinitions>
+                                            <StackLayout Grid.Row="0" Padding="8" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+                                                <Label Text="{Binding ActivityName}" TextColor="{Binding IsNotesInfo,Converter={StaticResource BoolToColorBlack}}" LineBreakMode="WordWrap" x:Name="lblName" Font="Bold" HorizontalOptions="Start" VerticalOptions="CenterAndExpand" />
+                                                <Label Text="{Binding ActivitySubject, StringFormat = ' - {0}'}" TextColor="{Binding IsNotesInfo,Converter={StaticResource BoolToColorBlack}}" HorizontalOptions="StartAndExpand" Font="Bold" VerticalOptions="CenterAndExpand" />
+                                            </StackLayout>
+                                            <StackLayout Grid.Row="1" Grid.Column="0" Padding="5,0,5,0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Orientation="Horizontal">
+                                                <Label Text="{Binding DetailStatus}" TextColor="{Binding IsNotesInfo,Converter={StaticResource BoolToColorGray}}" FontSize="9" FontAttributes="Bold" HorizontalOptions="FillAndExpand" />
+                                            </StackLayout>
+                                            <StackLayout Grid.RowSpan="2" Grid.Row="0" Padding="5,0,5,0" Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                                                <Label Text="{Binding StartDate, StringFormat = '{0:dd-MMM-yy}'}" Grid.RowSpan="2" Grid.Row="0" Grid.Column="1" TextColor="{Binding IsNotesInfo,Converter={StaticResource BoolToColorGray}}" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="EndAndExpand" />
+                                            </StackLayout>
+                                        </Grid>
+                                        <StackLayout StyleClass="Stack" Grid.Row="1" Padding="5,0,5,0" Grid.Column="0" Grid.ColumnSpan="2" IsVisible="{Binding IsNotesInfo}" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                                            <ScrollView>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="150" />
+                                                        <ColumnDefinition Width="*" />
+                                                    </Grid.ColumnDefinitions>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="100" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                       <!-- <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="30" />
+                                                        <RowDefinition Height="1" />
+                                                        <RowDefinition Height="*" />
+                                                        <RowDefinition Height="30" />-->
+                                                    </Grid.RowDefinitions>
+                                                    <Label Text="Subject Name " Grid.Column="0" Grid.Row="0" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="textSubjectype" Text="{Binding SubjectName}" Grid.Column="1" Grid.Row="0" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="Activity Action " Grid.Column="0" Grid.Row="2" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="textActionName" Text="{Binding ActivityName}" Grid.Column="1" Grid.Row="2" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="Activity Type " Grid.Column="0" Grid.Row="4" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="textActivetype" Text="{Binding TypeName}" Grid.Column="1" Grid.Row="4" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="Details " Grid.Column="0" Grid.Row="6" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="textDetails" Text="{Binding Details}" Grid.Column="1" Grid.Row="6" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="Start Date " Grid.Column="0" Grid.Row="8" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="textStartDate" Text="{Binding StartDate, StringFormat='{0:dd-MMM-yy}'}" Grid.Column="1" Grid.Row="8" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="StartTime" Grid.Column="0" Grid.Row="10" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="txtStartTime" Text="{Binding StartTime, StringFormat='{}{0:hh\\:mm}'}" Grid.Column="1" Grid.Row="10" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="End Date " Grid.Column="0" Grid.Row="12" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="textEndtDate" Text="{Binding EndDate, StringFormat='{0:dd-MMM-yy}'}" Grid.Column="1" Grid.Row="12" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="EndTime" Grid.Column="0" Grid.Row="14" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="txtEndTime" Text="{Binding EndTime, StringFormat='{}{0:hh\\:mm}'}" Grid.Column="1" Grid.Row="14" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="Priority" Grid.Column="0" Grid.Row="16" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="txtPriority" Text="{Binding Priority,Converter={StaticResource NumberToStringPriority}}" Grid.Column="1" Grid.Row="16" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="Location" Grid.Column="0" Grid.Row="18" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="txtLocation" Text="{Binding Location}" Grid.Column="1" Grid.Row="18" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="Notes" Grid.Column="0" Grid.Row="20" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="txtNotes" Text="{Binding Notes}" Grid.Column="1" Grid.Row="20" StyleClass="LabelClassNotesValue" />
+                                                    <Label Text="Attachment" Grid.Column="0" Grid.Row="22" VerticalOptions="StartAndExpand" StyleClass="LabelClassNotesKey" />
+                                                    <Image x:Name="Att_Image" Source="{Binding stream}" HorizontalOptions="Start" Grid.Column="1" Grid.Row="22" HeightRequest="100" WidthRequest="100" />
+                                                    <!--<Frame OutlineColor="#003366"  Grid.Column="1" Grid.Row="22"  >
+                                                        <Image x:Name="Att_Image"  Grid.Column="1" Grid.Row="22"    HeightRequest="50" WidthRequest="40"  />
+                                                    </Frame>-->
+                                                    <Label Text="Status" Grid.Column="0" Grid.Row="24" StyleClass="LabelClassNotesKey" />
+                                                    <Label x:Name="txtStatus" Text="{Binding Status,Converter={StaticResource NumberToString}}" Grid.Column="1" Grid.Row="24" StyleClass="LabelClassNotesValue" />
+                                                </Grid>
+                                            </ScrollView>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </controls:InfiniteListView.ItemTemplate>
+            </controls:InfiniteListView>
+        </StackLayout>
+    </ContentPage.Content>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="BtnAdd"  Icon="plus.png"  Clicked="BtnAdd_Clicked">
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+</ContentPage>
+

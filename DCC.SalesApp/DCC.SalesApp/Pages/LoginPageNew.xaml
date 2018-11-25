@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"    
+             xmlns:local="clr-namespace:DCC.SalesApp;clr-namespace:DCC.SalesApp;"
+             x:Class="DCC.SalesApp.Pages.LoginPageNew"
+             BackgroundColor="{StaticResource PageBackgroundColor}"
+             xmlns:ctrls="clr-namespace:AsNum.XFControls;assembly=AsNum.XFControls"
+             >
+    <ContentPage.Content>
+        <Grid HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+             <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+             </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="3*"/>
+            </Grid.RowDefinitions>
+            <Image Source="logoNew.png" Aspect="AspectFit" Margin="0,20,0,0" Grid.Column="1" Grid.Row="0" WidthRequest="170" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+       <StackLayout Grid.Column="1" Grid.Row="1" HorizontalOptions="CenterAndExpand">
+                <StackLayout Orientation="Vertical">
+                     <local:CustomEntry  StyleClass="TextClassLogin" Text="{Binding Email}"  Placeholder="Email" HorizontalTextAlignment="Start"   WidthRequest="300" HeightRequest="40" />
+                    <local:CustomEntry StyleClass="TextClassLogin" Text="{Binding Password}"  Placeholder="Password" HorizontalTextAlignment="Start"   WidthRequest="300" HeightRequest="40" />
+                    
+                    <StackLayout Margin="0,5,0,0" Orientation="Horizontal" BackgroundColor="Transparent"> 
+                         <ctrls:CheckBox  VerticalOptions="Start" OffImg="UncheckIcon.png" OnImg="CheckIcon.png"/>
+                         <Label Text="Remember me"  StyleClass="LabelCheckBoxLogin"  HorizontalOptions="Start" VerticalOptions="Center"  />   
+                    </StackLayout>
+                </StackLayout>
+                         <Button x:Name="btnLogin" Command="{Binding SubmitCommand}" StyleClass="BtnClassLogin" Text="LOGIN" HeightRequest="50" />
+         </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand" Grid.Column="1" Grid.Row="2" >
+              <Grid>
+               <Grid.RowDefinitions>
+                 <RowDefinition Height="*"/>
+               </Grid.RowDefinitions>
+                     <Image Source="setting_bg.png" VerticalOptions="EndAndExpand"  Grid.Column="0" Grid.Row="0"  WidthRequest="300" Aspect="AspectFit"/>  
+                    <Image Source="settingLogin.png"  Margin="0,-17,0,0"  VerticalOptions="StartAndExpand"  Grid.Column="0" Grid.Row="0" HeightRequest="40" WidthRequest="40" Aspect="AspectFit" >
+                        <Image.GestureRecognizers>
+                             <TapGestureRecognizer Command="{Binding SettingCommand}" NumberOfTapsRequired="1" />
+                        </Image.GestureRecognizers>
+                    </Image>
+              </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+   
+</ContentPage>

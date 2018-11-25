@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:controls="clr-namespace:XLabs.Forms.Controls;assembly=XLabs.Forms"
+             x:Class="DCC.SalesApp.App" xmlns:local="clr-namespace:DCC.SalesApp;assembly=DCC.SalesApp"
+             xmlns:localCRenderers="clr-namespace:DCC.SalesApp.CustomRenderers;assembly=DCC.SalesApp">
+    <Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="FontFamilyName" x:TypeArguments="x:String" iOS="Verdana" Android="monospace" WinPhone="Segoe UI" />
+
+            <OnPlatform x:Key="PageBackgroundColor" x:TypeArguments="Color">
+                <OnPlatform.iOS>#00A2FF</OnPlatform.iOS>
+                <OnPlatform.Android>#00A2FF</OnPlatform.Android>
+                <OnPlatform.WinPhone>#00A2FF</OnPlatform.WinPhone>
+            </OnPlatform>
+            
+            <OnPlatform x:Key="BgColor" x:TypeArguments="Color">
+                <OnPlatform.iOS>#fff</OnPlatform.iOS>
+                <OnPlatform.Android>#fff</OnPlatform.Android>
+                <OnPlatform.WinPhone>#fff</OnPlatform.WinPhone>
+            </OnPlatform>
+            <OnPlatform x:Key="StackBgColor" x:TypeArguments="Color">
+                <OnPlatform.iOS>#f3f2f2</OnPlatform.iOS>
+                <OnPlatform.Android>#f3f2f2</OnPlatform.Android>
+                <OnPlatform.WinPhone>#f3f2f2</OnPlatform.WinPhone>
+            </OnPlatform>
+            <OnPlatform x:Key="textColor" x:TypeArguments="Color">
+                <OnPlatform.iOS>#036890</OnPlatform.iOS>
+                <OnPlatform.Android>#036890</OnPlatform.Android>
+                <OnPlatform.WinPhone>#036890</OnPlatform.WinPhone>
+            </OnPlatform>
+            <OnPlatform x:Key="HeaderColor" x:TypeArguments="Color">
+                <OnPlatform.iOS>#036890</OnPlatform.iOS>
+                <OnPlatform.Android>#036890</OnPlatform.Android>
+                <OnPlatform.WinPhone>#036890</OnPlatform.WinPhone>
+            </OnPlatform>
+            <Style TargetType="NavigationPage">
+                <Setter Property="BarTextColor" Value="White"/>
+                <Setter Property="BarBackgroundColor" Value="#00a2ff"/>
+            </Style>
+            <Style TargetType="TabbedPage">
+                <Setter Property="BarTextColor" Value="White"/>
+                <Setter Property="BarBackgroundColor" Value="#036890"/>
+            </Style>
+            <!--#region  Manin Left Menu -->
+
+            <Style TargetType="StackLayout" Class="LeftGridStack">
+                <Setter Property="BackgroundColor" Value="{ StaticResource textColor }" />
+            </Style>
+            <Style TargetType="Label" Class="LeftGridHeader">
+                <Setter Property="FontSize" Value="18" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{ StaticResource BgColor }" />
+                <Setter Property="BackgroundColor" Value="{ StaticResource textColor }" />
+            </Style>
+
+            <Style TargetType="Label" Class="LeftGridLabelClass">
+                <Setter Property="TextColor" Value="{ StaticResource BgColor }" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+
+            <Style TargetType="BoxView" Class="LeftGridHorizontalRule">
+                <Setter Property="BackgroundColor" Value="{ StaticResource BgColor }" />
+                <Setter Property="HeightRequest" Value="1" />
+            </Style>
+
+            <!--#endregion-->
+            <Style TargetType="BoxView" Class="HorizontalRule">
+                <Setter Property="BackgroundColor" Value="{ StaticResource textColor }" />
+                <Setter Property="HeightRequest" Value="1" />
+            </Style>
+            <Style TargetType="StackLayout" Class="Stack">
+                <Setter Property="BackgroundColor" Value="#f3f2f2" />
+                <Setter Property="Padding" Value="10,10,10,10"></Setter>
+            </Style>
+
+            <Style TargetType="StackLayout" Class="StackDSR">
+                <Setter Property="BackgroundColor" Value="#ffffff" />
+                <Setter Property="Padding" Value="20,15,20,10"></Setter>
+            </Style>
+
+            <Style TargetType="ScrollView" Class="Scroll">
+                <Setter Property="BackgroundColor" Value="#f3f2f2" />
+                <Setter Property="Padding" Value="10,10,10,10"></Setter>
+            </Style>
+            <Style TargetType="Label" Class="Header">
+                <Setter Property="FontSize" Value="22" />
+                <Setter Property="TextColor" Value="{ StaticResource HeaderColor }" />
+                <Setter Property="FontAttributes" Value="Bold" />
+
+            </Style>
+           <Style TargetType="Label" Class="LabelCheckBox">
+                <Setter Property="FontSize" Value="10" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{ StaticResource BgColor }" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+            
+             <Style TargetType="Label" Class="LabelCheckBoxLogin">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="{ StaticResource BgColor }" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+            <Style TargetType="Label" Class="LabelClassNotesKey">
+            <!--    <Setter Property="FontFamily" Value="{DynamicResource FontFamilyName}" />-->
+                <Setter Property="TextColor" Value="#000000" />
+                <Setter Property="FontSize" Value="12" />
+                <!--<Setter Property="FontAttributes" Value="Bold"/>-->
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+            
+              <Style TargetType="localCRenderers:BorderEntry" Class="EntryClassKey">
+                <Setter Property="TextColor" Value="{ StaticResource textColor }" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="#F4F4F4" />
+            </Style>
+            
+             <Style TargetType="Label" Class="LabelClassNotesValue">
+              <!--  <Setter Property="FontFamily" Value="{DynamicResource FontFamilyName}" />-->
+                <Setter Property="TextColor" Value="#939393" />
+                <Setter Property="FontSize" Value="12" />
+                <!--<Setter Property="FontAttributes" Value="Bold"/>-->
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+            
+            <Style TargetType="Label" Class="LabelClass">
+                <Setter Property="FontFamily" Value="{DynamicResource FontFamilyName}" />
+                <Setter Property="TextColor" Value="{ StaticResource textColor }" />
+                <Setter Property="FontSize" Value="12" />
+                <!--<Setter Property="FontAttributes" Value="Bold" />-->
+                <Setter Property="VerticalOptions" Value="Center" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+            <Style TargetType="Label" Class="LabelClass1">
+                <Setter Property="TextColor" Value="{ StaticResource textColor }" />
+                <Setter Property="FontSize" Value="13" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+            <Style TargetType="Label" Class="LabelHeader">
+                <Setter Property="TextColor" Value="{ StaticResource textColor }" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+            </Style>
+            
+            <Style TargetType="Label" Class="LabelQuotationValue">
+            <!--    <Setter Property="FontFamily" Value="{DynamicResource FontFamilyName}" />-->
+                <Setter Property="BackgroundColor" Value="#F4F4F4" />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="HeightRequest" Value="35"/>
+                <Setter Property="TextColor" Value="Black"/>
+            </Style>
+            
+            <Style TargetType="Picker" Class="PickerStyle">
+                <Setter Property="TextColor" Value="{ StaticResource textColor }" />
+                <Setter Property="VerticalOptions" Value="Start" />
+            </Style>
+            
+            <Style TargetType="Picker" Class="PickerStyleCustomer">
+               <Setter Property="TextColor" Value="#000000" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="VerticalOptions" Value="Start" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+            </Style>
+
+            <Style TargetType="DatePicker" Class="DatePickerStyle">
+                <Setter Property="TextColor" Value="{ StaticResource textColor }" />
+                <Setter Property="VerticalOptions" Value="Center" />
+
+            </Style>
+            <Style TargetType="TimePicker" Class="TimePickerStyle">
+                <Setter Property="TextColor" Value="{ StaticResource textColor }" />
+                <Setter Property="VerticalOptions" Value="Center" />
+
+            </Style>
+
+
+           <!--<Style TargetType="controls:BindableRadioGroup" Class="RdClass">
+                <Setter Property="TextColor" Value="{ StaticResource textColor }" />
+
+            </Style>-->
+
+
+            <Style TargetType="local:CustomEntry" Class="TextClass">
+                <Setter Property="TextColor"  Value="{ StaticResource textColor }"  />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            <Style TargetType="Editor" Class="EditorClass">
+                <Setter Property="TextColor"  Value="{ StaticResource textColor }"  />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="Margin" Value="0" />
+                <Setter Property="BackgroundColor" Value="#F4F4F4"/>
+            </Style>
+            
+            <Style TargetType="local:CustomEntry" Class="TextClassLogin">
+                <Setter Property="TextColor"  Value="{ StaticResource BgColor }"  />
+                <Setter Property="PlaceholderColor"  Value="{ StaticResource BgColor }"  />
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="Margin" Value="0" />
+            </Style>
+            
+            
+             <Style TargetType="Button" Class="BtnClassLogin">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="WidthRequest" Value="300" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderRadius" Value="18"/>
+                <Setter Property="CornerRadius" Value="20"/>
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="#036890" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            
+            <Style TargetType="Button" Class="BtnClass">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="WidthRequest" Value="80" />
+                <Setter Property="BorderColor" Value="#036890" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderRadius" Value="18"/>
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="#036890" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontAttributes" Value="Bold" />
+            </Style>
+            
+            <Style TargetType="Button" Class="BtnNoteStyle">
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="BorderWidth" Value="1" />
+               <Setter Property="BorderColor" Value="#00A2FF" />
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="#00A2FF" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Padding" Value="15,0,15,0"/>
+            </Style>
+            
+             <Style TargetType="Button" Class="BtnStyleFotter">
+                <Setter Property="BorderColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="#00A2FF" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            
+            <Style TargetType="Button" Class="BtnClass1">
+                <Setter Property="HorizontalOptions" Value="CenterAndExpand" />
+                <Setter Property="WidthRequest" Value="80"/>
+                <Setter Property="HeightRequest" Value="80"/>
+                <Setter Property="BorderColor" Value="{ StaticResource textColor }" />
+                <Setter Property="BorderWidth" Value="1" />
+                <Setter Property="BorderRadius" Value="40"/>
+                <Setter Property="BackgroundColor" Value="White" />
+                <Setter Property="TextColor" Value="{ StaticResource textColor }" />
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="Margin" Value="5" />
+            </Style>
+
+            <Style TargetType="BoxView" Class="Circle">
+                <Setter Property="BackgroundColor" Value="Transparent" />
+
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <!--<Setter Property="local:Theme.CornerRadius" Value="10" />-->
+                <!--<Setter Property="local:Theme.Circle" Value="True" />-->
+            </Style>
+            <Style TargetType="BoxView" Class="Rounded">
+                <Setter Property="BackgroundColor" Value="{ StaticResource BgColor }" />
+                <Setter Property="HorizontalOptions" Value="Start" />
+                <!--<Setter Property="local:Theme.CornerRadius" Value="4" />-->
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
